@@ -84,10 +84,16 @@
 
 				}
 				label{
+				
+				
+				label.chk{
+				
 					display:block;
 					margin-bottom:20px;
 					font-size:15px;
+					
 					margin-right:70px;
+					
 				}
 				
 				.dfl1{
@@ -143,12 +149,18 @@
 				}
 				
 
-				}
-				.yr{
+				
+				label.yr{
+				display:block;
 				font-weight:bold;
 				font-size:20px;
 				float:left;
+				margin-bottom:20px;
+				margin-right:70px;
+				
 				}
+				
+				
 				
 			</style>
 	  </head>
@@ -172,7 +184,8 @@
 		<section class="u-clearfix u-section-1" id="sec-0916" >
 			<div style="color:transparent" height="50px"><a style="margin-left:50px;" href="https://drive.google.com/file/d/1yHifZhAGME22WUmL9Leymq-2MABZwmld/view?usp=sharing" target="_blank"> Click to download courses flowchart </a></div>
 			
-			<div style='margin-left:100px; margin-right:100px; position:relative;background-image: url("images/CE Program Flowchart.jpg");background-repeat: no-repeat;width:1803;height:1434px;'>
+			<div class="flowchart" style='margin-left:100px; margin-right:100px; position:relative;background-image: url("images/CE Program Flowchart.jpg");background-repeat: no-repeat;width:1803;height:1434px;'>
+			
 			
 			
 				<!-- c1 -->
@@ -258,135 +271,145 @@
 				<div class="c10 tick" style="top:1190px;" id="comp502">.</div>
 				<div class="c10 tick" style="top:1415px;" id="comp452">.</div>
 
-			</div>
-			<div style="margin-left:50px; ">
-				<div style=" margin-top:50px;">
+			</div> <!--end of flowchart-->
+			<div class= "checkboxes" style="margin-left:50px; margin-top:50px; margin-right:100px; margin-bottom:100px;">
 
-					
-				<div class="dfl1" style="float:left;">
-					<!-- c1 -->
-					
-					<div class="v" >
-					<!-- 57 ticks             -->
-					
-						<label class="yr">
-							<input type="checkbox" onclick="
-							var inputs1 = document.querySelectorAll('.k1,.k2,.k3');
-							var in1 = document.querySelectorAll('.tick.c1,.tick.c2,.tick.c3');
-							if(this.checked){
+				<div class="yr1" >
+						<!-- 57 ticks             -->
 						
+							
 						
-								for (var i = 0; i < inputs1.length; i++) {
-									inputs1[i].checked=true;
-									in1[i].style.visibility = 'visible';
-									
-									
+							<!-- c1 -->
+							<div class="y1" >
+							<label class="yr ">
+								<input type="checkbox" onclick="
+								var inputs1 = document.querySelectorAll('.k1,.k2,.k3');
+								var in1 = document.querySelectorAll('.tick.c1,.tick.c2,.tick.c3');
+								if(this.checked){
+							
+							
+									for (var i = 0; i < inputs1.length; i++) {
+										inputs1[i].checked=true;
+										in1[i].style.visibility = 'visible';
+										
+										
+									}
 								}
-							}
-							else{
-								for (var i = 0; i < inputs1.length; i++) {
-									inputs1[i].checked=false;
-									in1[i].style.visibility = 'hidden';
-									
+								else{
+									for (var i = 0; i < inputs1.length; i++) {
+										inputs1[i].checked=false;
+										in1[i].style.visibility = 'hidden';
+										
+									}
 								}
-							}
+							
+								">
+								Year 1
+							</label>
+							</div>
+					<div class="dfl1" style="float:left;">
+						<!-- c1 -->
 						
-							">
-							Year 1
-						</label>
+						
+						
+							<label class="chk"><input class="c1 k1" type="checkbox" onclick="if(this.checked){document.getElementById('math281').style.visibility='visible';} else {document.getElementById('math281').style.visibility='hidden';}">MATH281</label>
+							<label class="chk"><input class="c1 k1" type="checkbox" onclick="if(this.checked){document.getElementById('math282').style.visibility='visible';} else {document.getElementById('math282').style.visibility='hidden';}">MATH282</label>
+							<label class="chk"><input class="c1 k1" type="checkbox" onclick="if(this.checked){document.getElementById('phys281').style.visibility='visible';} else {document.getElementById('phys281').style.visibility='hidden';}">PHYS281</label>
+							<label class="chk"><input class="c1 k1" type="checkbox" onclick="if(this.checked){document.getElementById('engr002').style.visibility='visible';} else {document.getElementById('engr002').style.visibility='hidden';}">ENGR002</label>
+							<label class="chk"><input class="c1 k1" type="checkbox" onclick="if(this.checked){document.getElementById('mche213').style.visibility='visible';} else {document.getElementById('mche213').style.visibility='hidden';}">MCHE213</label> 
+							<label class="chk"><input class="c1 k1" type="checkbox" onclick="if(this.checked){document.getElementById('arab001').style.visibility='visible';} else {document.getElementById('arab001').style.visibility='hidden';}">ARAB001</label>
+						</div>
+					
+					<div class="dfl2" style="float:left;">
+						<!-- c2 -->
+					
+						<label class="chk"><input class="c2 k2" type="checkbox" onclick="if(this.checked){document.getElementById('math283').style.visibility='visible';} else {document.getElementById('math283').style.visibility='hidden';}">MATH283</label>
+						<label class="chk"><input class="c2 k2" type="checkbox" onclick="if(this.checked){document.getElementById('powe212').style.visibility='visible';} else {document.getElementById('powe212').style.visibility='hidden';}">powe212</label>
+						<label class="chk"><input class="c2 k2" type="checkbox" onclick="if(this.checked){document.getElementById('phys282').style.visibility='visible';} else {document.getElementById('phys282').style.visibility='hidden';}">PHYS282</label>
+						<label class="chk"><input class="c2 k2" type="checkbox" onclick="if(this.checked){document.getElementById('comp225').style.visibility='visible';} else {document.getElementById('comp225').style.visibility='hidden';}">COMP225</label>
+						<label class="chk"><input class="c2 k2" type="checkbox" onclick="if(this.checked){document.getElementById('engl001').style.visibility='visible';} else {document.getElementById('engl001').style.visibility='hidden';}">ENGL001</label>
+						<label class="chk"><input class="c2 k2" type="checkbox" onclick="if(this.checked){document.getElementById('comp208').style.visibility='visible';} else {document.getElementById('comp208').style.visibility='hidden';}">COMP208</label>
 					</div>
-					<!-- c1 -->
-					<hr><br>
-					<label><input class="c1 k1" type="checkbox" onclick="if(this.checked){document.getElementById('math281').style.visibility='visible';} else {document.getElementById('math281').style.visibility='hidden';}">MATH281</label>
-					<label><input class="c1 k1" type="checkbox" onclick="if(this.checked){document.getElementById('math282').style.visibility='visible';} else {document.getElementById('math282').style.visibility='hidden';}">MATH282</label>
-					<label><input class="c1 k1" type="checkbox" onclick="if(this.checked){document.getElementById('phys281').style.visibility='visible';} else {document.getElementById('phys281').style.visibility='hidden';}">PHYS281</label>
-					<label><input class="c1 k1" type="checkbox" onclick="if(this.checked){document.getElementById('engr002').style.visibility='visible';} else {document.getElementById('engr002').style.visibility='hidden';}">ENGR002</label>
-					<label><input class="c1 k1" type="checkbox" onclick="if(this.checked){document.getElementById('mche213').style.visibility='visible';} else {document.getElementById('mche213').style.visibility='hidden';}">MCHE213</label> 
-					<label><input class="c1 k1" type="checkbox" onclick="if(this.checked){document.getElementById('arab001').style.visibility='visible';} else {document.getElementById('arab001').style.visibility='hidden';}">ARAB001</label>
-				</div>
-				
-				<div class="dfl2" style="float:left;">
-					<!-- c2 -->
-					<br><br><br><br>
-					<label><input class="c2 k2" type="checkbox" onclick="if(this.checked){document.getElementById('math283').style.visibility='visible';} else {document.getElementById('math283').style.visibility='hidden';}">MATH283</label>
-					<label><input class="c2 k2" type="checkbox" onclick="if(this.checked){document.getElementById('powe212').style.visibility='visible';} else {document.getElementById('powe212').style.visibility='hidden';}">powe212</label>
-					<label><input class="c2 k2" type="checkbox" onclick="if(this.checked){document.getElementById('phys282').style.visibility='visible';} else {document.getElementById('phys282').style.visibility='hidden';}">PHYS282</label>
-					<label><input class="c2 k2" type="checkbox" onclick="if(this.checked){document.getElementById('comp225').style.visibility='visible';} else {document.getElementById('comp225').style.visibility='hidden';}">COMP225</label>
-					<label><input class="c2 k2" type="checkbox" onclick="if(this.checked){document.getElementById('engl001').style.visibility='visible';} else {document.getElementById('engl001').style.visibility='hidden';}">ENGL001</label>
-					<label><input class="c2 k2" type="checkbox" onclick="if(this.checked){document.getElementById('comp208').style.visibility='visible';} else {document.getElementById('comp208').style.visibility='hidden';}">COMP208</label>
-				</div>
-					
-				<div class="dfl3" style="float:left;">
+						
+					<div class="dfl3" style="float:left;">
 					
 					<!-- c3 -->
-					<br><br><br><br>
-					<label><input class="c3 k3" type="checkbox" onclick="if(this.checked){document.getElementById('blaw001').style.visibility='visible';} else {document.getElementById('blaw001').style.visibility='hidden';}">BLAW001</label>
-					<label><input class="c3 k3" type="checkbox" onclick="if(this.checked){document.getElementById('ge1').style.visibility='visible';} else {document.getElementById('ge1').style.visibility='hidden';}">General Elective</label>
-					<label><input class="c3 k3" type="checkbox" onclick="if(this.checked){document.getElementById('chem241').style.visibility='visible';} else {document.getElementById('chem241').style.visibility='hidden';}">CHEM241</label>
-					<label><input class="c3 k3" type="checkbox" onclick="if(this.checked){document.getElementById('engl211').style.visibility='visible';} else {document.getElementById('engl211').style.visibility='hidden';}">ENGL211</label>
-				</div>
-									
-				<div class="dfl4" style="float:left;">
-					<!-- c4 -->
-					<div class="v" >
-						<label class="yr">
-							<input type="checkbox" onclick="
-							
-							var inputs2 = document.querySelectorAll('.k4,.k5,.k6');
-							var in2 = document.querySelectorAll('.tick.c4,.tick.c5,.tick.c6');
-							if(this.checked){
-							
-							
-								for (var i = 0; i < inputs2.length; i++) {
-									inputs2[i].checked = true;
-									in2[i].style.visibility = 'visible';
-									
-								}
-							}
-							else{
-								for (var i = 0; i < inputs2.length; i++) {
-									inputs2[i].checked = false;
-									in2[i].style.visibility = 'hidden';
-									
-								}
-							}
-							">
-							Year 2
-						</label>
-					</div>
-					<hr><br>
-					<label><input class="c4 k4" type="checkbox" onclick="if(this.checked){document.getElementById('come223').style.visibility='visible';} else {document.getElementById('come223').style.visibility='hidden';}">COME223</label>
-					<label><input class="c4 k4" type="checkbox" onclick="if(this.checked){document.getElementById('comp231').style.visibility='visible';} else {document.getElementById('comp231').style.visibility='hidden';}">COMP231</label>
-					<label><input class="c4 k4" type="checkbox" onclick="if(this.checked){document.getElementById('comp226').style.visibility='visible';} else {document.getElementById('comp226').style.visibility='hidden';}">COMP226</label>
-					<label><input class="c4 k4" type="checkbox" onclick="if(this.checked){document.getElementById('engl300').style.visibility='visible';} else {document.getElementById('engl300').style.visibility='hidden';}">ENGL300</label>
-					<label><input class="c4 k4" type="checkbox" onclick="if(this.checked){document.getElementById('comp215').style.visibility='visible';} else {document.getElementById('comp215').style.visibility='hidden';}">COMP215</label>
-					<label><input class="c4 k4" type="checkbox" onclick="if(this.checked){document.getElementById('comp210').style.visibility='visible';} else {document.getElementById('comp210').style.visibility='hidden';}">COMP210</label>
-				</div>
 					
-				<div class="dfl5" style="float:left;">
-					<!-- c5 -->
-					<br><br><br><br>
-					<label><input class="c5 k5" type="checkbox" onclick="if(this.checked){document.getElementById('math284').style.visibility='visible';} else {document.getElementById('math284').style.visibility='hidden';}">MATH284</label>
-					<label><input class="c5 k5" type="checkbox" onclick="if(this.checked){document.getElementById('comp232').style.visibility='visible';} else {document.getElementById('comp232').style.visibility='hidden';}">COMP232</label>
-					<label><input class="c5 k5" type="checkbox" onclick="if(this.checked){document.getElementById('math381').style.visibility='visible';} else {document.getElementById('math381').style.visibility='hidden';}">MATH381</label>
-					<label><input class="c5 k5" type="checkbox" onclick="if(this.checked){document.getElementById('comp325').style.visibility='visible';} else {document.getElementById('comp325').style.visibility='hidden';}">COMP325</label>
-					<label><input class="c5 k5" type="checkbox" onclick="if(this.checked){document.getElementById('inme221').style.visibility='visible';} else {document.getElementById('inme221').style.visibility='hidden';}">INME221</label>
-					<label><input class="c5 k5" type="checkbox" onclick="if(this.checked){document.getElementById('comp311').style.visibility='visible';} else {document.getElementById('comp311').style.visibility='hidden';}">COMP311</label>
+					<label class="chk"><input class="c3 k3" type="checkbox" onclick="if(this.checked){document.getElementById('blaw001').style.visibility='visible';} else {document.getElementById('blaw001').style.visibility='hidden';}">BLAW001</label>
+					<label class="chk"><input class="c3 k3" type="checkbox" onclick="if(this.checked){document.getElementById('ge1').style.visibility='visible';} else {document.getElementById('ge1').style.visibility='hidden';}">General Elective</label>
+					<label class="chk"><input class="c3 k3" type="checkbox" onclick="if(this.checked){document.getElementById('chem241').style.visibility='visible';} else {document.getElementById('chem241').style.visibility='hidden';}">CHEM241</label>
+					<label class="chk"><input class="c3 k3" type="checkbox" onclick="if(this.checked){document.getElementById('engl211').style.visibility='visible';} else {document.getElementById('engl211').style.visibility='hidden';}">ENGL211</label>
 				</div>
-					
-				<div class="dfl6" style="float:left;">
-					<!-- c6 -->
-					<br><br><br><br>
-					<label><input class="c6 k6" type="checkbox" onclick="if(this.checked){document.getElementById('mgmt002').style.visibility='visible';} else {document.getElementById('mgmt002').style.visibility='hidden';}">MGMT002</label>
-					<label><input class="c6 k6" type="checkbox" onclick="if(this.checked){document.getElementById('chem405').style.visibility='visible';} else {document.getElementById('chem405').style.visibility='hidden';}">CHEM405</label>
-					<label><input class="c6 k6" type="checkbox" onclick="if(this.checked){document.getElementById('engr001').style.visibility='visible';} else {document.getElementById('engr001').style.visibility='hidden';}">ENGR001</label>
-					<label><input class="c6 k6" type="checkbox" onclick="if(this.checked){document.getElementById('ge2').style.visibility='visible';} else {document.getElementById('ge2').style.visibility='hidden';}">General Elective</label>
-				</div>
+				</div>				
+				
+				<div class="yr2" >
+										
+							
+						<div class="y2">
+							<label class="yr ">
+								<input type="checkbox" onclick="
 								
-				<div class="dfl7" style="float:left;">
-					<!-- c7 -->
-					<div class="v" >
-						<label class="yr">
+								var inputs2 = document.querySelectorAll('.k4,.k5,.k6');
+								var in2 = document.querySelectorAll('.tick.c4,.tick.c5,.tick.c6');
+								if(this.checked){
+								
+								
+									for (var i = 0; i < inputs2.length; i++) {
+										inputs2[i].checked = true;
+										in2[i].style.visibility = 'visible';
+										
+									}
+								}
+								else{
+									for (var i = 0; i < inputs2.length; i++) {
+										inputs2[i].checked = false;
+										in2[i].style.visibility = 'hidden';
+										
+									}
+								}
+								">
+								Year 2
+							</label>
+							</div>
+					<div class="dfl4" style="float:left;">
+						<!-- c4 -->
+						
+					
+							
+						<label class="chk"><input class="c4 k4" type="checkbox" onclick="if(this.checked){document.getElementById('come223').style.visibility='visible';} else {document.getElementById('come223').style.visibility='hidden';}">COME223</label>
+						<label class="chk"><input class="c4 k4" type="checkbox" onclick="if(this.checked){document.getElementById('comp231').style.visibility='visible';} else {document.getElementById('comp231').style.visibility='hidden';}">COMP231</label>
+						<label class="chk"><input class="c4 k4" type="checkbox" onclick="if(this.checked){document.getElementById('comp226').style.visibility='visible';} else {document.getElementById('comp226').style.visibility='hidden';}">COMP226</label>
+						<label class="chk"><input class="c4 k4" type="checkbox" onclick="if(this.checked){document.getElementById('engl300').style.visibility='visible';} else {document.getElementById('engl300').style.visibility='hidden';}">ENGL300</label>
+						<label class="chk"><input class="c4 k4" type="checkbox" onclick="if(this.checked){document.getElementById('comp215').style.visibility='visible';} else {document.getElementById('comp215').style.visibility='hidden';}">COMP215</label>
+						<label class="chk"><input class="c4 k4" type="checkbox" onclick="if(this.checked){document.getElementById('comp210').style.visibility='visible';} else {document.getElementById('comp210').style.visibility='hidden';}">COMP210</label>
+					</div>
+						
+					<div class="dfl5" style="float:left;">
+						<!-- c5 -->
+					
+						
+						<label class="chk"><input class="c5 k5" type="checkbox" onclick="if(this.checked){document.getElementById('math284').style.visibility='visible';} else {document.getElementById('math284').style.visibility='hidden';}">MATH284</label>
+						<label class="chk"><input class="c5 k5" type="checkbox" onclick="if(this.checked){document.getElementById('comp232').style.visibility='visible';} else {document.getElementById('comp232').style.visibility='hidden';}">COMP232</label>
+						<label class="chk"><input class="c5 k5" type="checkbox" onclick="if(this.checked){document.getElementById('math381').style.visibility='visible';} else {document.getElementById('math381').style.visibility='hidden';}">MATH381</label>
+						<label class="chk"><input class="c5 k5" type="checkbox" onclick="if(this.checked){document.getElementById('comp325').style.visibility='visible';} else {document.getElementById('comp325').style.visibility='hidden';}">COMP325</label>
+						<label class="chk"><input class="c5 k5" type="checkbox" onclick="if(this.checked){document.getElementById('inme221').style.visibility='visible';} else {document.getElementById('inme221').style.visibility='hidden';}">INME221</label>
+						<label class="chk"><input class="c5 k5" type="checkbox" onclick="if(this.checked){document.getElementById('comp311').style.visibility='visible';} else {document.getElementById('comp311').style.visibility='hidden';}">COMP311</label>
+					</div>
+						
+					<div class="dfl6" style="float:left;">
+					<!-- c6 -->
+				
+					<label class="chk"><input class="c6 k6" type="checkbox" onclick="if(this.checked){document.getElementById('mgmt002').style.visibility='visible';} else {document.getElementById('mgmt002').style.visibility='hidden';}">MGMT002</label>
+					<label class="chk"><input class="c6 k6" type="checkbox" onclick="if(this.checked){document.getElementById('chem405').style.visibility='visible';} else {document.getElementById('chem405').style.visibility='hidden';}">CHEM405</label>
+					<label class="chk"><input class="c6 k6" type="checkbox" onclick="if(this.checked){document.getElementById('engr001').style.visibility='visible';} else {document.getElementById('engr001').style.visibility='hidden';}">ENGR001</label>
+					<label class="chk"><input class="c6 k6" type="checkbox" onclick="if(this.checked){document.getElementById('ge2').style.visibility='visible';} else {document.getElementById('ge2').style.visibility='hidden';}">General Elective</label>
+				</div>
+				</div>	<!--end of year 2 -->	
+				
+				<div class="yr3" >
+										
+					<div class="y3" >
+					<label class="yr ">
 							<input type="checkbox" onclick="
 							var inputs3 = document.querySelectorAll('.k7,.k8');
 							var in3 = document.querySelectorAll('.tick.c7,.tick.c8');
@@ -409,32 +432,37 @@
 							">
 							Year 3
 						</label>
-					</div>
-					<hr><br>
-					<label><input class="c7 k7" type="checkbox" onclick="if(this.checked){document.getElementById('comp361').style.visibility='visible';} else {document.getElementById('comp361').style.visibility='hidden';}">COMP361</label>
-					<label><input class="c7 k7" type="checkbox" onclick="if(this.checked){document.getElementById('come411').style.visibility='visible';} else {document.getElementById('come411').style.visibility='hidden';}">COME411</label>
-					<label><input class="c7 k7" type="checkbox" onclick="if(this.checked){document.getElementById('comp337').style.visibility='visible';} else {document.getElementById('comp337').style.visibility='hidden';}">COMP337</label>
-					<label><input class="c7 k7" type="checkbox" onclick="if(this.checked){document.getElementById('comp453').style.visibility='visible';} else {document.getElementById('comp453').style.visibility='hidden';}">COMP453</label>
-					<label><input class="c7 k7" type="checkbox" onclick="if(this.checked){document.getElementById('te1').style.visibility='visible';} else {document.getElementById('te1').style.visibility='hidden';}">Technical Elective 1</label>
-					<label><input class="c7 k7" type="checkbox" onclick="if(this.checked){document.getElementById('comp423').style.visibility='visible';} else {document.getElementById('comp423').style.visibility='hidden';}">COMP423</label>
+						</div>
+				<div class="dfl7" style="float:left;">
+					<!-- c7 -->
+					
+					
+					<label class="chk"><input class="c7 k7" type="checkbox" onclick="if(this.checked){document.getElementById('comp361').style.visibility='visible';} else {document.getElementById('comp361').style.visibility='hidden';}">COMP361</label>
+					<label class="chk"><input class="c7 k7" type="checkbox" onclick="if(this.checked){document.getElementById('come411').style.visibility='visible';} else {document.getElementById('come411').style.visibility='hidden';}">COME411</label>
+					<label class="chk"><input class="c7 k7" type="checkbox" onclick="if(this.checked){document.getElementById('comp337').style.visibility='visible';} else {document.getElementById('comp337').style.visibility='hidden';}">COMP337</label>
+					<label class="chk"><input class="c7 k7" type="checkbox" onclick="if(this.checked){document.getElementById('comp453').style.visibility='visible';} else {document.getElementById('comp453').style.visibility='hidden';}">COMP453</label>
+					<label class="chk"><input class="c7 k7" type="checkbox" onclick="if(this.checked){document.getElementById('te1').style.visibility='visible';} else {document.getElementById('te1').style.visibility='hidden';}">Technical Elective 1</label>
+					<label class="chk"><input class="c7 k7" type="checkbox" onclick="if(this.checked){document.getElementById('comp423').style.visibility='visible';} else {document.getElementById('comp423').style.visibility='hidden';}">COMP423</label>
 				</div>
 					
 				<div class="dfl8" style="float:left;">
 					<!-- c8 -->
-					<br><br><br><br>
-					<label><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('comp344').style.visibility='visible';} else {document.getElementById('comp344').style.visibility='hidden';}">COMP344</label>
-					<label><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('comp454l').style.visibility='visible';} else {document.getElementById('comp454l').style.visibility='hidden';}">COMP454L</label>
-					<label><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('comp454').style.visibility='visible';} else {document.getElementById('comp454').style.visibility='hidden';}">COMP454</label>
-					<label><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('comp428').style.visibility='visible';} else {document.getElementById('comp428').style.visibility='hidden';}">COMP428</label>
-					<label><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('ge3').style.visibility='visible';} else {document.getElementById('ge3').style.visibility='hidden';}">General Elective</label>
-					<label><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('comp364').style.visibility='visible';} else {document.getElementById('comp364').style.visibility='hidden';}">COMP364</label>
-					<label><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('comp442').style.visibility='visible';} else {document.getElementById('comp442').style.visibility='hidden';}">COMP442</label>
+			
+					<label class="chk"><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('comp344').style.visibility='visible';} else {document.getElementById('comp344').style.visibility='hidden';}">COMP344</label>
+					<label class="chk"><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('comp454l').style.visibility='visible';} else {document.getElementById('comp454l').style.visibility='hidden';}">COMP454L</label>
+					<label class="chk"><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('comp454').style.visibility='visible';} else {document.getElementById('comp454').style.visibility='hidden';}">COMP454</label>
+					<label class="chk"><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('comp428').style.visibility='visible';} else {document.getElementById('comp428').style.visibility='hidden';}">COMP428</label>
+					<label class="chk"><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('ge3').style.visibility='visible';} else {document.getElementById('ge3').style.visibility='hidden';}">General Elective</label>
+					<label class="chk"><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('comp364').style.visibility='visible';} else {document.getElementById('comp364').style.visibility='hidden';}">COMP364</label>
+					<label class="chk"><input class="c8 k8" type="checkbox" onclick="if(this.checked){document.getElementById('comp442').style.visibility='visible';} else {document.getElementById('comp442').style.visibility='hidden';}">COMP442</label>
 				</div>
-									
-				<div class="dfl9" style="float:left;">
-					<!-- c9 -->
-					<div class="v" >
-						<label class="yr">
+				</div>				<!--end of year 3-->	
+				
+				<div class="yr4" >
+				
+					<div class="y4">
+					
+					<label class="yr ">
 							<input type="checkbox" onclick="
 							
 							var inputs4 = document.querySelectorAll('.k9,.k10');
@@ -458,36 +486,39 @@
 							">
 							Year 4
 						</label>
-					</div>
-					<hr>
-					<br>
-					<label><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('comp543').style.visibility='visible';} else {document.getElementById('comp543').style.visibility='hidden';}">COMP543</label>
-					<label><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('comp543l').style.visibility='visible';} else {document.getElementById('comp543l').style.visibility='hidden';}">COMP543L</label>
-					<label><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('te2').style.visibility='visible';} else {document.getElementById('te2').style.visibility='hidden';}">Technical Elective 2</label>
-					<label><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('te3').style.visibility='visible';} else {document.getElementById('te3').style.visibility='hidden';}">Technical Elective 3</label>
-					<label><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('comp501').style.visibility='visible';} else {document.getElementById('comp501').style.visibility='hidden';}">COMP501</label>
-					<label><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('comp500').style.visibility='visible';} else {document.getElementById('comp500').style.visibility='hidden';}">COMP500</label>
-					<label><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('comp499').style.visibility='visible';} else {document.getElementById('comp499').style.visibility='hidden';}">COMP499</label>
+						</div>
+				<div class="dfl9" style="float:left;">
+					<!-- c9 -->
+					
+						
+					<label class="chk"><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('comp543').style.visibility='visible';} else {document.getElementById('comp543').style.visibility='hidden';}">COMP543</label>
+					<label class="chk"><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('comp543l').style.visibility='visible';} else {document.getElementById('comp543l').style.visibility='hidden';}">COMP543L</label>
+					<label class="chk"><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('te2').style.visibility='visible';} else {document.getElementById('te2').style.visibility='hidden';}">Technical Elective 2</label>
+					<label class="chk"><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('te3').style.visibility='visible';} else {document.getElementById('te3').style.visibility='hidden';}">Technical Elective 3</label>
+					<label class="chk"><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('comp501').style.visibility='visible';} else {document.getElementById('comp501').style.visibility='hidden';}">COMP501</label>
+					<label class="chk"><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('comp500').style.visibility='visible';} else {document.getElementById('comp500').style.visibility='hidden';}">COMP500</label>
+					<label class="chk"><input class="c9 k9" type="checkbox" onclick="if(this.checked){document.getElementById('comp499').style.visibility='visible';} else {document.getElementById('comp499').style.visibility='hidden';}">COMP499</label>
 				</div>
 					
 				<div class="dfl10" style="float:left;">
 					<!-- c10 -->
-					<br><br><br><br>
-					<label><input class="c10 k10" type="checkbox" onclick="if(this.checked){document.getElementById('te4').style.visibility='visible';} else {document.getElementById('te4').style.visibility='hidden';}">Technical Elective 4</label>
-					<label><input class="c10 k10" type="checkbox" onclick="if(this.checked){document.getElementById('comp443').style.visibility='visible';} else {document.getElementById('comp443').style.visibility='hidden';}">COMP443</label>
-					<label><input class="c10 k10" type="checkbox" onclick="if(this.checked){document.getElementById('comp525').style.visibility='visible';} else {document.getElementById('comp525').style.visibility='hidden';}">COMP525</label>
-					<label><input class="c10 k10" type="checkbox" onclick="if(this.checked){document.getElementById('comp502').style.visibility='visible';} else {document.getElementById('comp502').style.visibility='hidden';}">COMP502</label>
-					<label><input class="c10 k10" type="checkbox" onclick="if(this.checked){document.getElementById('comp452').style.visibility='visible';} else {document.getElementById('comp452').style.visibility='hidden';}">COMP452</label>
-				</div>
 					
-			</div>		
+					<label class="chk"><input class="c10 k10" type="checkbox" onclick="if(this.checked){document.getElementById('te4').style.visibility='visible';} else {document.getElementById('te4').style.visibility='hidden';}">Technical Elective 4</label>
+					<label class="chk"><input class="c10 k10" type="checkbox" onclick="if(this.checked){document.getElementById('comp443').style.visibility='visible';} else {document.getElementById('comp443').style.visibility='hidden';}">COMP443</label>
+					<label class="chk"><input class="c10 k10" type="checkbox" onclick="if(this.checked){document.getElementById('comp525').style.visibility='visible';} else {document.getElementById('comp525').style.visibility='hidden';}">COMP525</label>
+					<label class="chk"><input class="c10 k10" type="checkbox" onclick="if(this.checked){document.getElementById('comp502').style.visibility='visible';} else {document.getElementById('comp502').style.visibility='hidden';}">COMP502</label>
+					<label class="chk"><input class="c10 k10" type="checkbox" onclick="if(this.checked){document.getElementById('comp452').style.visibility='visible';} else {document.getElementById('comp452').style.visibility='hidden';}">COMP452</label>
+				</div>
+			</div> <!--end of year 4 -->
+			
+			</div>		<!--end of checkboxes-->
 				
-		</div>
+		
 			
 			
 		  
 		</section>
-		<br><br>
+		
 		
 		<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-9688">
 			<div class="u-clearfix u-sheet u-sheet-1">
