@@ -5691,6 +5691,9 @@ section.u-image:not(.u-hover-box),
   .u-sheet {
     width: 1140px;
   }
+  .u-sheetc {
+    width: 2400px;
+  }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
   .u-sheet {
@@ -25020,6 +25023,10 @@ li.active > .u-button-style.u-button-style.u-grey-5,
 li.active > .u-button-style.u-button-style.u-grey-5[class*="u-border-"] {
   color: #111111 !important;
   background-color: #dadada !important;
+}
+.u-orange{
+	
+	background-color:#F28C28;
 }
 .u-hover-grey-5:hover,
 .u-hover-grey-5[class*="u-border-"]:hover,
