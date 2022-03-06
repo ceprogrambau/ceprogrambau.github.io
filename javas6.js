@@ -5,7 +5,7 @@ function Upload() {
         var fileUpload = document.getElementById("fileUpload");
 		fileUpload.name='studenttranscript.csv';
         //Validate whether File is valid Excel file.
-        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xls|.xlsx|.csv)$/;
+        var regex = /^([a-zA-Z0-9\(\)\s_\\.\-:])+(.xls|.xlsx|.csv)$/;
         if (regex.test(fileUpload.value.toLowerCase())) {
             if (typeof (FileReader) != "undefined") {
                 var reader = new FileReader();
@@ -555,6 +555,64 @@ let TECH=[
 'INME482'
 ];
 
+let prereq=[
+['COME223','POWE212'],
+['COME411','COME223'],
+['COMP210','COMP208'],
+['COMP215','COMP208'],
+['COMP226','COMP225'],
+['COMP231','MATH282'],
+['COMP232','COMP210','COMP231'],
+['COMP311','COMP210'],
+['COMP325','COMP226'],
+['COMP337','COMP231'],
+['COMP344','COMP232'],
+['COMP361','MATH238','POWE212'],
+['COMP364','COMP215'],
+['COMP423','COMP226'],
+['COMP428','COMP325'],
+['COMP442','COMP311'],
+['COMP443','COMP423'],
+['COMP452','COMP311'],
+['COMP453','COMP231'],
+['COMP454','COMP225'],
+['COMP454L','COMP454'],
+['COMP500','ENGL300'],
+['COMP501','COMP500'],
+['COMP502','COMP500'],
+['COMP525','COMP325'],
+['COMP543','COMP337'],
+['COMP543L','COMP543'],
+['COMP431','MATH381'],
+['COMP438','COMP325','MATH283'],
+['COMP444','COMP443'],
+['COMP455','COMP210'],
+['COMP464','COMP231'],
+['COMP477','COMP325'],
+['COMP477','COMP232'],
+['COMP510','COMP454'],
+['COMP512','COMP344'],
+['COMP529','COMP428'],
+['COMP530','COMP428'],
+['COMP532','COMP337','MATH381'],
+['COMP533','COMP311'],
+['COMP534','COMP231'],
+['COMP535','COMP453'],
+['COMP541','COMP442'],
+['COMP554','COMP454'],
+['COMP555','COMP454'],
+['COMP556','COMP454'],
+['COMP559','COMP454'],
+['COMP560','COMP364'],
+['COMP561','COMP361'],
+['COMP562','COMP364'],
+['COMP564','CONMP364'],
+['COMP565','COMP364'],
+['COMP567','COMP454'],
+['COMP568','COMP232'],
+['INME482','ENGL300']
+];
+
 /*
 let STUDENT =[
 ['ARAB001',2,'A+'],
@@ -1012,14 +1070,45 @@ document.getElementById("diff").innerHTML=diff;
  for (x = 0; x < document.getElementsByTagName('input').length; x++) {
 	 if (document.getElementsByTagName('input').item(x).type == 'checkbox') {
 		 let cn = document.getElementsByTagName('input').item(x);
-		 if(cn.checked==false){
-			 
+		 if(cn.checked==false ){
+			
 			tn=cn.id.slice(1);
+			
+			preFlag = 0;
+			inpre=0;
 			if(tn){
+				 for(n=0;n< prereq.length;n++) 
+				 {
+					 if(tn==prereq[n][0]){
+						 inpre=1;
+						 for (v=1;v<prereq[n].length;v++){
+							 for (c=0;c<STUDENT.length;c++){
+								 if (prereq[n][v] == STUDENT[c][1]){
+									preFlag += 1;
+									break;
+								 }
+							 }
+							 
+						 }
+						 if (preFlag == prereq[n].length-1){
+							if (tn == 'COMP501' && total<110)
+								continue;
+							ti =document.getElementById(tn);
+							ti.style.backgroundImage='url("images/tick2.png")';
+							ti.style.visibility='visible';
+						 }
+						 preFlag =0;
+						 
+					 }
+					 
+				 }
+				 if (inpre == 0){
+					ti =document.getElementById(tn);
+				    ti.style.backgroundImage='url("images/tick2.png")';
+					ti.style.visibility='visible';
+				 }
+				 inpre =0;
 				 
-				 ti =document.getElementById(tn);
-				 ti.style.backgroundImage='url("images/tick2.png")';
-				 ti.style.visibility='visible';
 			 }
 		 }
 	 }

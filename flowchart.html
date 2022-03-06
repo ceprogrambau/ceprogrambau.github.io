@@ -134,9 +134,163 @@
 				<div class="c10 tick" style="top:1415px;" id="COMP452">.</div>
       </div></div>
     </section></a>
+		   <section class="u-align-left u-clearfix u-image u-section-8" id="carousel_767c" >
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <section width="100%">
+		        
+				
+				<!--
+        <table border=1>
+        <th>Common requirements</th>	
+            <th>Total Credits</th>
+            <tr>
+            <td class="column">General Education Requirements</td>
+            <td class="column">20</td>
+            </tr>
+            <tr>
+            <td id="ENG">General Education Requirements</td>
+            <td style="background-color:yellow;" id="ENG_C"></td>
+            </tr>
+            <tr>
+                <td class="column">Mandatory General Education Requirements:['IC003','ARAB001','ENGL001','BLAW001']</td>
+            </tr>
+            <tr>
+                <td style="background-color:yellow;" id="mand"></td>
+            </tr>
+            
+            
+            
+            <tr>
+            <td class="column">Basic Sciences and Mathematics</td>
+            <td class="column"> 26</td>
+            </tr>
+            <tr>
+            <td id="BASIC">Basic Sciences and Mathematics</td>
+            <td style="background-color:yellow;" id="BASIC_C"></td>
+            </tr>
+            
+            <tr>
+            <td class="column">General Engineering topics</td>
+            <td class="column">9</td>
+            </tr>
+	        
+            <tr>
+            <td id="GE">General Education Requirements</td>
+            <td  style="background-color:yellow;"id="GE_C"></td>
+            </tr>
+
 	
+            <th>CE Program-Specific Requirements</th>
+             <tr>
+            <td class="column">A- Engineering topics from outside the program</td>
+            <td class="column">9</td>
+            </tr>
+            <tr>
+            <td id="OUT">A- Engineering topics from outside the program</td>
+            <td style="background-color:yellow;" id="OUT_C"></td>
+            </tr>
+            
+            <tr>
+            <td class="column">B- CE Core</td>
+            <td class="column"> 74</td>
+            </tr>
+            
+            <tr>
+            <td id="CORE">B- CE Core</td>
+            <td style="background-color:yellow;" id="CORE_C"></td>
+            </tr>
+            
+            <tr>
+            <td class="column">C-Technical Elective</td>
+            <td class="column">12</td>
+            </tr>
+            <tr>
+            <td id="TECH">C-Technical Elective</td>
+            <td style="background-color:yellow;" id="TECH_C"></td>
+            </tr>
+        </table>
+        <br><br>
+        <table border=1>
+
+            <tr>
+                <td>Not counted old duplicate courses</td>
+                <td id="dup"></td>
+            </tr>
+            <tr>
+                <td>Failed courses</td>
+                <td id="fail"></td>
+            </tr>
+            
+            <tr>
+                <td>Incomplete courses</td>
+                <td id="inc"></td>
+            </tr>
+            
+            <tr>
+                <td>Unknown not counted courses</td>
+                <td style="background-color:yellow;" id="other"></td>
+            </tr> 
+            <tr>
+                <td>Core courses not taken yet</td>
+                <td style="background-color:orange;"id="diff"></td>
+            </tr>
+            
+            </table>
+        <br><br>
+        <table border=1>
+            
+        <tr>
+            <td>Total credit to graduate</td>
+            <td id="totalgrad"></td>
+        </tr>
+                
+        <tr>
+            <td>Earned credits</td>
+            <td id="sum"></td>
+        </tr>
+                
+        <tr>
+            <td>Counted credits</td>
+            <td id="total"></td>
+        </tr>
+                
+        <tr>
+            <td>Uncounted credits</td>
+            <td id="nsum"></td>
+        </tr>
+            
+        
+        </table>
+		<p></p>
+		-->
+		
+		<input type="file" id="fileUpload"  />
+		<input type="button" id="upload" value="Upload" onclick="Upload()" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/xlsx.full.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/jszip.js"></script>
+		<p></p>
+		<p></p>
+		<div id="dvENG"></div> 
+		<!--<div id="dvExcel"></div> 
+		<div id="here">HERE</div>
+		<div id="dvENG"></div> 
+		<div id="dvBASIC"></div> 
+		<div id="dvGE"></div> 
+		<div id="dvOUT"></div> 
+		<div id="dvCORE"></div> 
+		<div id="dvTECH"></div> 
+		<div id="dvother"></div> -->
+		<script src="javas6.js">
+        
+
+        </script>
+		<p></p>
+		</section>
+      </div>
+    </section>
+    
   
-    <section class="u-align-center u-clearfix u-section-11" id="sec-b316">
+    <section class="u-align-center u-clearfix u-section-11 hiddenClass" id="sec-b316">
       <div class="u-clearfix u-sheetc u-valign-middle u-sheet-1">
 
         <div class="u-expanded-width u-list u-list-1">
@@ -400,161 +554,8 @@
         </div>
       </div>
     </section>
-        <section class="u-align-left u-clearfix u-image u-section-8" id="carousel_767c" >
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <section width="100%">
-		        
-				
-				<!--
-        <table border=1>
-        <th>Common requirements</th>	
-            <th>Total Credits</th>
-            <tr>
-            <td class="column">General Education Requirements</td>
-            <td class="column">20</td>
-            </tr>
-            <tr>
-            <td id="ENG">General Education Requirements</td>
-            <td style="background-color:yellow;" id="ENG_C"></td>
-            </tr>
-            <tr>
-                <td class="column">Mandatory General Education Requirements:['IC003','ARAB001','ENGL001','BLAW001']</td>
-            </tr>
-            <tr>
-                <td style="background-color:yellow;" id="mand"></td>
-            </tr>
-            
-            
-            
-            <tr>
-            <td class="column">Basic Sciences and Mathematics</td>
-            <td class="column"> 26</td>
-            </tr>
-            <tr>
-            <td id="BASIC">Basic Sciences and Mathematics</td>
-            <td style="background-color:yellow;" id="BASIC_C"></td>
-            </tr>
-            
-            <tr>
-            <td class="column">General Engineering topics</td>
-            <td class="column">9</td>
-            </tr>
-	        
-            <tr>
-            <td id="GE">General Education Requirements</td>
-            <td  style="background-color:yellow;"id="GE_C"></td>
-            </tr>
+       
 
-	
-            <th>CE Program-Specific Requirements</th>
-             <tr>
-            <td class="column">A- Engineering topics from outside the program</td>
-            <td class="column">9</td>
-            </tr>
-            <tr>
-            <td id="OUT">A- Engineering topics from outside the program</td>
-            <td style="background-color:yellow;" id="OUT_C"></td>
-            </tr>
-            
-            <tr>
-            <td class="column">B- CE Core</td>
-            <td class="column"> 74</td>
-            </tr>
-            
-            <tr>
-            <td id="CORE">B- CE Core</td>
-            <td style="background-color:yellow;" id="CORE_C"></td>
-            </tr>
-            
-            <tr>
-            <td class="column">C-Technical Elective</td>
-            <td class="column">12</td>
-            </tr>
-            <tr>
-            <td id="TECH">C-Technical Elective</td>
-            <td style="background-color:yellow;" id="TECH_C"></td>
-            </tr>
-        </table>
-        <br><br>
-        <table border=1>
-
-            <tr>
-                <td>Not counted old duplicate courses</td>
-                <td id="dup"></td>
-            </tr>
-            <tr>
-                <td>Failed courses</td>
-                <td id="fail"></td>
-            </tr>
-            
-            <tr>
-                <td>Incomplete courses</td>
-                <td id="inc"></td>
-            </tr>
-            
-            <tr>
-                <td>Unknown not counted courses</td>
-                <td style="background-color:yellow;" id="other"></td>
-            </tr> 
-            <tr>
-                <td>Core courses not taken yet</td>
-                <td style="background-color:orange;"id="diff"></td>
-            </tr>
-            
-            </table>
-        <br><br>
-        <table border=1>
-            
-        <tr>
-            <td>Total credit to graduate</td>
-            <td id="totalgrad"></td>
-        </tr>
-                
-        <tr>
-            <td>Earned credits</td>
-            <td id="sum"></td>
-        </tr>
-                
-        <tr>
-            <td>Counted credits</td>
-            <td id="total"></td>
-        </tr>
-                
-        <tr>
-            <td>Uncounted credits</td>
-            <td id="nsum"></td>
-        </tr>
-            
-        
-        </table>
-		<p></p>
-		-->
-		
-		<input type="file" id="fileUpload"  />
-		<input type="button" id="upload" value="Upload" onclick="Upload()" />
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/xlsx.full.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/jszip.js"></script>
-		<p></p>
-		<p></p>
-		<div id="dvENG"></div> 
-		<!--<div id="dvExcel"></div> 
-		<div id="here">HERE</div>
-		<div id="dvENG"></div> 
-		<div id="dvBASIC"></div> 
-		<div id="dvGE"></div> 
-		<div id="dvOUT"></div> 
-		<div id="dvCORE"></div> 
-		<div id="dvTECH"></div> 
-		<div id="dvother"></div> -->
-		<script src="javas6.js">
-        
-
-        </script>
-		<p></p>
-		</section>
-      </div>
-    </section>
-    
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-9688"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">2022</p>
       </div></footer>

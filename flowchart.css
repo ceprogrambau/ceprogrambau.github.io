@@ -78,7 +78,9 @@ input[type=checkbox]{
 
 	}
 	
-	
+	.hiddenClass{
+		visibility:hidden;
+	}
 	label.chk{
 	
 		display:block;
@@ -486,7 +488,7 @@ table{
 
 .u-section-2 .u-sheet-1 {
   min-height: 1434px;
-  min-width:1803px;
+  min-width:1809px;
 
 }
 
