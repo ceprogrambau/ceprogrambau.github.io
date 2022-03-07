@@ -1091,8 +1091,11 @@ document.getElementById("diff").innerHTML=diff;
 							 
 						 }
 						 if (preFlag == prereq[n].length-1){
-							if (tn == 'COMP501' && total<110)
+							if (tn == 'COMP501' && total<110){
+								preFlag =0;
+								inpre=0;
 								continue;
+							}
 							ti =document.getElementById(tn);
 							ti.style.backgroundImage='url("images/tick2.png")';
 							ti.style.visibility='visible';
