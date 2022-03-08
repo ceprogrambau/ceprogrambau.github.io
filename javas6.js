@@ -482,7 +482,8 @@ let ENG=[
 'CMPS002',
 'PHED002',
 'HIST002',
-'PHED004'
+'PHED004',
+'SPAN001'
 
 ];
 
