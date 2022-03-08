@@ -482,9 +482,15 @@ table{
     grid-template-columns: 100%;
   }
 } .u-section-2 {
+ /* background-image: url("images/CE Program Flowchart.jpg");*/
+  /*background-position: 100% 100%;*/
+}
+
+.bck{
   background-image: url("images/CE Program Flowchart.jpg");
   /*background-position: 100% 100%;*/
 }
+
 
 .u-section-2 .u-sheet-1 {
   min-height: 1434px;
