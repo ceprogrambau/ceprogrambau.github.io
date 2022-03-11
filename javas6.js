@@ -360,6 +360,7 @@ function Upload() {
  
 		let STUDENT=[]
         //Add the data rows from Excel file.
+		
         for (var i = 0; i < excelRows.length; i++) {
             /*
 			//Add the data row.
@@ -382,7 +383,11 @@ function Upload() {
 							
 			}
 			else{
-				STUDENT.push([excelRows[i].Term,excelRows[i].Course,excelRows[i].Title,parseInt(excelRows[i].Credits),excelRows[i].Level,excelRows[i].Grade,excelRows[i].SGPA,""]);
+				if(excelRows[i].Term)
+					STUDENT.push([excelRows[i].Term,excelRows[i].Course,excelRows[i].Title,parseInt(excelRows[i].Credits),excelRows[i].Level,excelRows[i].Grade,excelRows[i].SGPA,""]);
+				else
+					STUDENT.push(["Active",excelRows[i].Course,excelRows[i].Title,parseInt(excelRows[i].Credits),excelRows[i].Level,excelRows[i].Grade,excelRows[i].SGPA,""]);
+					
 			}
         }
 
@@ -837,10 +842,11 @@ let mand_st=[];
 
 
 let fail_c = [];
-let inc =[];
+let inc = [];
 let dup = [];
 
-let sum=0;
+
+let sum = 0;
 let nsum = 0;
 let totalgrad = 150;
 let crl =[];
@@ -861,7 +867,10 @@ let alter=[
 
 ];
 
+let active = [];
+let prob = [];
 for (let i = 0; i < STUDENT.length; i++) {
+	
 	if (STUDENT[i][0] == 'Lebanese baccalaureate or Eqv.')
 		continue;
 	let course= STUDENT[i][1];
@@ -882,12 +891,35 @@ for (let i = 0; i < STUDENT.length; i++) {
 		if(course==alter[q][0])
 			course=alter[q][1];
 	}
+	
 	cours=document.getElementById(course);
 	//document.getElementById('trg').innerHTML=course;
-	
+	if (STUDENT[i][0] == "Active"){
+		
+		if(cours)
+			STUDENT[i][3] = parseInt(cours.getAttribute('value'));
+		else if(TECH.includes(course)){
+			
+			STUDENT[i][3]=3
+			}
+		else
+		{	
+			STUDENT[i][3]=3
+			prob.push(course)
+		}
+		STUDENT[i][4] = "UG"
+		STUDENT[i][5] = "/"
+		STUDENT[i][6] = 0
+		
+		active.push(course);
+		
+		
+		
+	}
 	
 	//check earned credits
-	sum += STUDENT[i][3];
+	
+		sum += STUDENT[i][3];
 	
 	//check for fail
 	if(fail.includes(STUDENT[i][5]))
@@ -908,6 +940,8 @@ for (let i = 0; i < STUDENT.length; i++) {
 			
 			continue;
 		}
+		if(STUDENT[i][5]=="/")
+			continue
 		if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5])> grade.indexOf(STUDENT[j][5]) )
 		{
 			dup.push("["+STUDENT[i]+"]");
@@ -929,7 +963,7 @@ for (let i = 0; i < STUDENT.length; i++) {
 
 	//check for groups and total
 
-	if (GE.includes(course) && pass.includes(STUDENT[i][5])){
+	if (GE.includes(course) && (pass.includes(STUDENT[i][5])|| STUDENT[i][5]=="/")){
 
 		GE_C += STUDENT[i][3];
 		GE_L.push("["+STUDENT[i]+"]");
@@ -941,7 +975,7 @@ for (let i = 0; i < STUDENT.length; i++) {
 		
 		
 	}
-	else if (BASIC.includes(course) && pass.includes(STUDENT[i][5])){
+	else if (BASIC.includes(course) && (pass.includes(STUDENT[i][5])|| STUDENT[i][5]=="/")){
 		
 		BASIC_C += STUDENT[i][3];
 		BASIC_L.push("["+STUDENT[i]+"]");
@@ -952,13 +986,14 @@ for (let i = 0; i < STUDENT.length; i++) {
 			}
 		if(cours)
 			{
-				
+				if(active.includes(course))
+					document.getElementById(course).style.borderColor="yellow";
 				document.getElementById(course).style.visibility='visible';
 				document.getElementById("c"+course).checked=true;
 				
 			}
 	}
-	else if (ENG.includes(course) && pass.includes(STUDENT[i][5])){
+	else if (ENG.includes(course) && (pass.includes(STUDENT[i][5])|| STUDENT[i][5]=="/")){
 		
 		ENG_C += STUDENT[i][3];
 		ENG_L.push("["+STUDENT[i]+"]");
@@ -974,13 +1009,14 @@ for (let i = 0; i < STUDENT.length; i++) {
 		elec += 1;}
 		if(cours)
 			{
-				
+				if(active.includes(course))
+					document.getElementById(course).style.borderColor="yellow";				
 				document.getElementById(course).style.visibility='visible';
 				document.getElementById("c"+course).checked=true;
 				
 			}
 	}
-	else if (OUT.includes(course) && pass.includes(STUDENT[i][5])){
+	else if (OUT.includes(course) && (pass.includes(STUDENT[i][5])|| STUDENT[i][5]=="/")){
 		
 		OUT_C += STUDENT[i][3];
 		OUT_L.push("["+STUDENT[i]+"]");
@@ -991,7 +1027,7 @@ for (let i = 0; i < STUDENT.length; i++) {
 			}
 		
 	}
-	else if (CORE.includes(course) && pass.includes(STUDENT[i][5])){
+	else if (CORE.includes(course) && (pass.includes(STUDENT[i][5])|| STUDENT[i][5]=="/")){
 		
 		CORE_C += STUDENT[i][3];
 		CORE_L.push("["+STUDENT[i]+"]");
@@ -1004,7 +1040,7 @@ for (let i = 0; i < STUDENT.length; i++) {
 		
 	}
 
-	else if (TECH.includes(course) && pass.includes(STUDENT[i][5])){
+	else if (TECH.includes(course) && (pass.includes(STUDENT[i][5])|| STUDENT[i][5]=="/")){
 		
 		TECH_C += STUDENT[i][3];
 		TECH_L.push("["+STUDENT[i]+"]");
@@ -1015,7 +1051,8 @@ for (let i = 0; i < STUDENT.length; i++) {
 			}
 		if(cours)
 		{
-			
+			if(active.includes(course))
+				document.getElementById(course).style.borderColor="yellow";		
 			document.getElementById(course).style.visibility='visible';
 			document.getElementById("c"+course).checked=true;
 		
@@ -1037,6 +1074,7 @@ for (let i = 0; i < STUDENT.length; i++) {
 	
 	else{
 		
+
 	}
 	
 		
@@ -1044,6 +1082,8 @@ for (let i = 0; i < STUDENT.length; i++) {
 	//document.getElementById("trg").innerHTML=course.value;
 	if(cours)
 	{	
+		if(active.includes(course))
+			document.getElementById(course).style.borderColor="yellow";	
 		document.getElementById(course).style.visibility='visible';
 		document.getElementById("c"+course).checked=true;
 		
@@ -1051,6 +1091,7 @@ for (let i = 0; i < STUDENT.length; i++) {
 
 	
 }
+
 
 let diff =[];
 
@@ -1142,7 +1183,7 @@ document.getElementById("diff").innerHTML=diff;
 								continue;
 							}
 							ti =document.getElementById(tn);
-							ti.style.backgroundImage='url("images/tick2.png")';
+							ti.style.borderColor="orange";
 							ti.style.visibility='visible';
 						 }
 						 preFlag =0;
@@ -1152,7 +1193,7 @@ document.getElementById("diff").innerHTML=diff;
 				 }
 				 if (inpre == 0){
 					ti =document.getElementById(tn);
-				    ti.style.backgroundImage='url("images/tick2.png")';
+				    ti.style.borderColor="orange";
 					ti.style.visibility='visible';
 				 }
 				 inpre =0;
@@ -1260,7 +1301,7 @@ tot.value=ENG_C
 row.appendChild(tot);
 
 //Add the data rows from Excel file.
-
+let probFlag = 0
 for (var i = 0; i < ENG_F.length; i++) {
 	//Add the data row.
 	var row = table.insertRow(-1);
@@ -1268,7 +1309,14 @@ for (var i = 0; i < ENG_F.length; i++) {
 		//Add the data cells.
 		var cell = row.insertCell(-1);
 		cell.innerHTML = ENG_F[i][j];
-
+		if(cell.innerHTML=="Active")
+			row.style.backgroundColor="#FFF200"
+		if(prob.includes(cell.innerHTML))
+			probFlag = 1
+		if (j==3 && probFlag ==1){
+			cell.style.backgroundColor="red"
+			probFlag =0
+		}
 	}
 }
 
@@ -1316,7 +1364,8 @@ for (var i = 0; i < BASIC_F.length; i++) {
 		//Add the data cells.
 		var cell = row.insertCell(-1);
 		cell.innerHTML = BASIC_F[i][j];
-
+		if(cell.innerHTML=="Active")
+				row.style.backgroundColor="#FFF200"
 	}
 }
 
@@ -1368,7 +1417,8 @@ for (var i = 0; i < GE_F.length; i++) {
 		//Add the data cells.
 		var cell = row.insertCell(-1);
 		cell.innerHTML = GE_F[i][j];
-
+		if(cell.innerHTML=="Active")
+			row.style.backgroundColor="#FFF200"
 	}
 }
 
@@ -1415,6 +1465,8 @@ for (var i = 0; i < OUT_F.length; i++) {
 		//Add the data cells.
 		var cell = row.insertCell(-1);
 		cell.innerHTML = OUT_F[i][j];
+		if(cell.innerHTML=="Active")
+			row.style.backgroundColor="#FFF200"
 
 	}
 }
@@ -1463,6 +1515,8 @@ for (var i = 0; i < CORE_F.length; i++) {
 		//Add the data cells.
 		var cell = row.insertCell(-1);
 		cell.innerHTML = CORE_F[i][j];
+		if(cell.innerHTML=="Active")
+			row.style.backgroundColor="#FFF200"
 
 	}
 }
@@ -1511,7 +1565,8 @@ for (var i = 0; i < TECH_F.length; i++) {
 		//Add the data cells.
 		var cell = row.insertCell(-1);
 		cell.innerHTML = TECH_F[i][j];
-
+		if(cell.innerHTML=="Active")
+			row.style.backgroundColor="#FFF200"
 	}
 }
 
@@ -1562,6 +1617,8 @@ for (var i = 0; i < other_F.length; i++) {
 		//Add the data cells.
 		var cell = row.insertCell(-1);
 		cell.innerHTML = other_F[i][j];
+		if(cell.innerHTML=="Active")
+			row.style.backgroundColor="#FFF200"
 
 	}
 

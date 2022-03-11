@@ -33,50 +33,62 @@ input[type=checkbox]{
 		color:transparent;
 		position:absolute;
 	}
+	.c13{
+		right:0px;
+		visibility:visible;
+		border-radius:50%;
+		background-size: 23px;
+		width:20px;
+		background-image:url('images/tick3.png');
+		color:transparent;
+		position:absolute;
+	}
 	.c1{
-		left:105px;
+		left:0px;
 	}
 	.c2{
-		left:300px;
+		left:200px;
 	}
 
 	
 	.c3{
-		left:475px;
+		left:370px;
 	}
 	.c4{
-		left:675px;
+		left:570px;
 	}
 	.c5{
-		left:840px;
+		left:738px;
 	}
 	.c6{
-		left:1045px;
+		left:940px;
 	}
 	.c7{
-		left:1215px;
+		left:1110px;
 	}
 	.c8{
-		left:1415px;
+		left:1310px;
 	}
 	.c9{
-		left:1585px;
+		left:1480px;
 	}
 	.c10{
-		left:1785px;
+		left:1680px;
 	}
 	
 	
 	.tick{
 		visibility:hidden;
-		border-radius:50%;
+		/*border-radius:50%;
 		background-size: 23px;
 		width:20px;
 		background-image:url('images/tick.png');
-		color:transparent;
+		color:transparent;*/
+		width:122px;height:65px;border:5px solid #00ff00; border-radius: 10px;
 		position:absolute; 
 
 	}
+	
 	
 	.hiddenClass{
 		visibility:hidden;
