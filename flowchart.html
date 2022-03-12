@@ -45,7 +45,9 @@
           <img src="images/667-6676713_beirut-arab-university-logo-png-download-beirut-arab.png" class="u-logo-image u-logo-image-1">
         </a>
       </div></header> 
-
+<div style="margin-left:20px;"><label>Name and ID: <input type="text" id="nameid" size=50"></label><br><br>
+		<input type="file" id="fileUpload"  name="filefield" multiple="multiple"/>
+		<input type="button" id="upload" value="Upload" onclick="Upload(dvENG2)" /></div>
 	<div class="u-align-center u-list u-list-1">
    <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1"  data-page-id="556503592"><section class="u-align-center u-clearfix u-image u-section-2" id="carousel_080d" data-image-width="1803" data-image-height="1434">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -84,7 +86,7 @@
 
 
 				<!-- c5 -->
-				<div class="c5 tick" style="top:292px;" value="3" id="MATH284"></div>
+				<div class="c5 tick" style="top:290px;" value="3" id="MATH284"></div>
 				<div class="c5 tick" style="top:482px;" value="3" id="COMP232"></div>
 				<div class="c5 tick" style="top:615px;" value="3" id="MATH381"></div>
 				<div class="c5 tick" style="top:895px; left:751px;" value="3" id="COMP325"></div>
@@ -264,13 +266,12 @@
 		<p></p>
 		-->
 		
-		<input type="file" id="fileUpload"  />
-		<input type="button" id="upload" value="Upload" onclick="Upload()" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/xlsx.full.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/jszip.js"></script>
 		<p></p>
 		<p></p>
 		<div id="dvENG"></div> 
+		<div id="dvENG2"></div>
 		<!--<div id="dvExcel"></div> 
 		<div id="here">HERE</div>
 		<div id="dvENG"></div> 
@@ -281,9 +282,10 @@
 		<div id="dvTECH"></div> 
 		<div id="dvother"></div> -->
 		<script src="javas6.js">
-        
+        var dvENG2 = document.getElementById("dvENG2");
 
-        </script>
+        </script><br>
+		
 		<p id="report"></p>
 		</section>
       </div>
