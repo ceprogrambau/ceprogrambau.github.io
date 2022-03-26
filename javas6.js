@@ -249,7 +249,9 @@ function ProcessExcel(data,nmid,dvENG2) {
 		'COMP568',
 		'INME482'
 	];
+	//course,prereq
 	let prereq = [
+		['COMP232', 'COMP210'],
 		['COME223', 'POWE212'],
 		['COME411', 'COME223'],
 		['COME221', 'COME223'],
