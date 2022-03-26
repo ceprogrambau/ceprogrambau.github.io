@@ -566,7 +566,7 @@ function ProcessExcel(data,nmid,dvENG2) {
 		document.getElementById("c" + "GE" + i).checked = true;
 	}
 	total = GE_C + BASIC_C + ENG_C + OUT_C + CORE_C + TECH_C + other_C;
-
+	let courseOff=[]
 	// loop through each input element and output the value of any checkbox elements
 	for (x = 0; x < document.getElementsByTagName('input').length; x++) {
 		if (document.getElementsByTagName('input').item(x).type == 'checkbox') {
@@ -596,6 +596,8 @@ function ProcessExcel(data,nmid,dvENG2) {
 								ti = document.getElementById(tn);
 								ti.style.borderColor = "orange";
 								ti.style.visibility = 'visible';
+								if(!courseOff.includes(tn))
+									courseOff.push(tn);
 							}
 							preFlag = 0;
 						}
@@ -604,6 +606,8 @@ function ProcessExcel(data,nmid,dvENG2) {
 						ti = document.getElementById(tn);
 						ti.style.borderColor = "orange";
 						ti.style.visibility = 'visible';
+						if(!courseOff.includes(tn))
+									courseOff.push(tn);
 					}
 					inpre = 0;
 				}
@@ -1051,7 +1055,15 @@ function ProcessExcel(data,nmid,dvENG2) {
 	headerCell.innerHTML = "Comments";
 	headerCell.style.width="200px"
 	headerCell.style.backgroundColor = "#eee";
-	row.appendChild(headerCell);}
+	row.appendChild(headerCell);
+	headerCell = document.createElement("TH");
+	headerCell.innerHTML = "Courses Needed";
+	headerCell.style.width="200px"
+	headerCell.style.backgroundColor = "#eee";
+	row.appendChild(headerCell);
+	
+	
+	}
 	
 
 	
@@ -1060,7 +1072,7 @@ function ProcessExcel(data,nmid,dvENG2) {
 		report.push(prob+ " set as 2 credits, recheck ");
 	else
 		report.push("")
-
+	report.push(courseOff)
 	var fsum=0;
 	if(fres.length>0){
 		for(var p=0;p<fres.length;p++)
@@ -1072,12 +1084,23 @@ function ProcessExcel(data,nmid,dvENG2) {
 	}
 		//Add the data row.
 		var row = table.insertRow(-1);
-		for (j = 0; j < 10; j++) {
+		for (j = 0; j < 11; j++) {
 			//Add the data cells.
 			var cell=row.insertCell(-1);
-			
+			if (j==10){
+				newl=""
+				cell.innerHTML =""
+				for(k=0;k<report[10].length;k++)
+				{
+					newl=report[10][k]+"<br>"
+					cell.innerHTML += newl 
+				}
+				cell.style.width="200px";
+				continue
+			}
 			cell.innerHTML = report[j];
 			cell.style.width="200px";
+			
 		
 			
 		}
