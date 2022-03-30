@@ -4,9 +4,12 @@ function Upload(dvENG2) {
 
 	// Retrieve FileList object
 	const files = input.files;
-
+	cOff=[]
+	cOff2=[]
+	cOff3=[]
 	// Loop through files
 	for (let i = 0; i < files.length; i++) {
+		
 		let file = files.item(i);
 		filename=file.name.split('.').slice(0, -1).join('.')
 		var reader = new FileReader();
@@ -20,7 +23,22 @@ function Upload(dvENG2) {
 					//For Browsers other than IE.
 					if (reader.readAsBinaryString) {
 						reader.onload = function(e) {
-							 ProcessExcel(e.target.result,file.name,dvENG2);
+							
+							cOff2=ProcessExcel(e.target.result,file.name,dvENG2);
+							for(lm=0;lm<cOff2.length;lm++)
+							{if (!cOff.includes(cOff2[lm])){
+							cOff.push(cOff2[lm])
+							cOff3.push(cOff2[lm])}}
+							//ProcessExcel(e.target.result,file.name,dvENG2);
+							
+							var bn = document.getElementById("coursoff");
+							var cx=[]
+							cx = bn.innerHTML
+							for(mn=0;mn<cOff3.length;mn++)
+								if(!cx.includes(cOff3[mn]))
+									bn.innerHTML += cOff3[mn]+','
+							cOff2=[]
+							cOff3=[]
 							
 							
 						};
@@ -36,8 +54,22 @@ function Upload(dvENG2) {
 							for (var i = 0; i < bytes.byteLength; i++) {
 								data += String.fromCharCode(bytes[i]);
 							}
-							 ProcessExcel(data,file.name,dvENG2);
+							cOff2=ProcessExcel(data,file.name,dvENG2);
+							//ProcessExcel(data,file.name,dvENG2);
+							for(lm=0;lm<cOff2.length;lm++)
+							{if (!cOff.includes(cOff2[lm])){
+							cOff.push(cOff2[lm])
+							cOff3.push(cOff2[lm])}}
+							//ProcessExcel(e.target.result,file.name,dvENG2);
 							
+							var bn = document.getElementById("coursoff");
+							var cx=[]
+							cx = bn.innerHTML
+							for(mn=0;mn<cOff3.length;mn++)
+								if(!cx.includes(cOff3[mn]))
+									bn.innerHTML += cOff3[mn]+','
+							cOff2=[]
+							cOff3=[]
 							
 						};
 						reader.readAsArrayBuffer(file);
@@ -1118,6 +1150,6 @@ function ProcessExcel(data,nmid,dvENG2) {
 	dvENG2.appendChild(table);
 
 	
-	
+	return courseOff;
 	
 };
