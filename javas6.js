@@ -444,12 +444,15 @@ function ProcessExcel(data,nmid,dvENG2) {
 			inc.push("[" + STUDENT[i] + "]");
 		}
 		//check for duplicates and 
+		if(STUDENT[i][5]=='W')
+				continue;
 		for (let j = 0; j < STUDENT.length; j++) {
 			if (i == j) {
 				continue;
 			}
 			if (STUDENT[i][5] == "/")
 				continue
+			
 			if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) > grade.indexOf(STUDENT[j][5])) {
 				dup.push("[" + STUDENT[i] + "]");
 			}
