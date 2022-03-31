@@ -1,5 +1,6 @@
 function Upload(dvENG2) {
 	
+	//document.getElementsByClassName("tick").style.borderColor = "";
 	const input = document.querySelector('#fileUpload');
 
 	// Retrieve FileList object
@@ -9,6 +10,23 @@ function Upload(dvENG2) {
 	cOff3=[]
 	// Loop through files
 	for (let i = 0; i < files.length; i++) {
+		//document.getElementsByClassName("tick").style.borderColor="#00ff00"
+		//document.getElementsByClassName("tick").style.visibility="hidden"
+		for (x = 0; x < document.getElementsByTagName('input').length; x++) {
+			if (document.getElementsByTagName('input').item(x).type == 'checkbox') {
+				let cn = document.getElementsByTagName('input').item(x);
+				cn.checked =false
+				tn = cn.id.slice(1);
+				if(tn){
+					ti = document.getElementById(tn);
+					ti.style.borderColor = '#00ff00';
+					ti.style.visibility = 'hidden';
+					tn='c'+tn
+					ti = document.getElementById(tn);
+					ti.checked=false
+				}
+			}
+		}
 		
 		let file = files.item(i);
 		filename=file.name.split('.').slice(0, -1).join('.')
@@ -24,7 +42,7 @@ function Upload(dvENG2) {
 					if (reader.readAsBinaryString) {
 						reader.onload = function(e) {
 							
-							cOff2=ProcessExcel(e.target.result,file.name,dvENG2);
+							cOff2=ProcessExcel(e.target.result,file.name,dvENG2).slice();
 							for(lm=0;lm<cOff2.length;lm++)
 							{if (!cOff.includes(cOff2[lm])){
 							cOff.push(cOff2[lm])
@@ -54,7 +72,7 @@ function Upload(dvENG2) {
 							for (var i = 0; i < bytes.byteLength; i++) {
 								data += String.fromCharCode(bytes[i]);
 							}
-							cOff2=ProcessExcel(data,file.name,dvENG2);
+							cOff2=ProcessExcel(data,file.name,dvENG2).slice();
 							//ProcessExcel(data,file.name,dvENG2);
 							for(lm=0;lm<cOff2.length;lm++)
 							{if (!cOff.includes(cOff2[lm])){
@@ -88,7 +106,22 @@ function Upload(dvENG2) {
 };
 
 function ProcessExcel(data,nmid,dvENG2) {
-
+	for (x = 0; x < document.getElementsByTagName('input').length; x++) {
+		if (document.getElementsByTagName('input').item(x).type == 'checkbox') {
+			let cn = document.getElementsByTagName('input').item(x);
+			cn.checked =false
+			tn = cn.id.slice(1);
+			if(tn){
+				ti = document.getElementById(tn);
+				ti.style.borderColor = '#00ff00';
+				ti.style.visibility = 'hidden';
+				tn='c'+tn
+				ti = document.getElementById(tn);
+				ti.checked=false
+			}
+		}
+	}
+	let courseOff=[]
 	let report=[];
 	//var nmid=document.getElementById("nameid").value;
 	filename=nmid.split('.').slice(0, -1).join('.')
@@ -208,7 +241,12 @@ function ProcessExcel(data,nmid,dvENG2) {
 		'POWE001',
 		'CMPS004',
 		'PTRE201',
-		'PHED003'
+		'PHED003',
+		'INTEA100',
+		'INTEA101',
+		'INTEA102',
+		'INTEA103',
+		'INTEA104'
 	];
 	let FRESH=[
 	'MATH112',
@@ -594,16 +632,18 @@ function ProcessExcel(data,nmid,dvENG2) {
 	}
 	//tick and check technical
 	for (i = 1; i <= TECH_L.length && i <= 4; i++) {
+		document.getElementById("TE" + i).style.borderColor = '#00ff00';
 		document.getElementById("TE" + i).style.visibility = 'visible';
 		document.getElementById("c" + "TE" + i).checked = true;
 	}
 	//tick and check general
 	for (i = 1; i <= elec && i <= 3; i++) {
+		document.getElementById("TE" + i).style.borderColor = '#00ff00';
 		document.getElementById("GE" + i).style.visibility = 'visible';
 		document.getElementById("c" + "GE" + i).checked = true;
 	}
 	total = GE_C + BASIC_C + ENG_C + OUT_C + CORE_C + TECH_C + other_C;
-	let courseOff=[]
+	
 	// loop through each input element and output the value of any checkbox elements
 	for (x = 0; x < document.getElementsByTagName('input').length; x++) {
 		if (document.getElementsByTagName('input').item(x).type == 'checkbox') {
@@ -633,8 +673,12 @@ function ProcessExcel(data,nmid,dvENG2) {
 								ti = document.getElementById(tn);
 								ti.style.borderColor = "orange";
 								ti.style.visibility = 'visible';
+
 								if(!courseOff.includes(tn))
 									courseOff.push(tn);
+								tn='c'+tn
+								ti=document.getElementById(tn)
+								ti.checked=false
 							}
 							preFlag = 0;
 						}
@@ -644,7 +688,10 @@ function ProcessExcel(data,nmid,dvENG2) {
 						ti.style.borderColor = "orange";
 						ti.style.visibility = 'visible';
 						if(!courseOff.includes(tn))
-									courseOff.push(tn);
+							courseOff.push(tn);
+						tn='c'+tn
+						ti=document.getElementById(tn)
+						ti.checked=false
 					}
 					inpre = 0;
 				}
