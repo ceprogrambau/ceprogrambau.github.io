@@ -1,4 +1,11 @@
 
+@media print {
+
+.hidecheck{
+	display:none !important;
+}
+}
+
 .zoom{
 zoom:0.67;
 }

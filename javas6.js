@@ -42,7 +42,7 @@ function Upload(dvENG2) {
 					if (reader.readAsBinaryString) {
 						reader.onload = function(e) {
 							
-							cOff2=ProcessExcel(e.target.result,file.name,dvENG2).slice();
+							cOff2=ProcessExcel(e.target.result,file.name,dvENG2,i).slice();
 							for(lm=0;lm<cOff2.length;lm++)
 							{if (!cOff.includes(cOff2[lm])){
 							cOff.push(cOff2[lm])
@@ -72,7 +72,7 @@ function Upload(dvENG2) {
 							for (var i = 0; i < bytes.byteLength; i++) {
 								data += String.fromCharCode(bytes[i]);
 							}
-							cOff2=ProcessExcel(data,file.name,dvENG2).slice();
+							cOff2=ProcessExcel(data,file.name,dvENG2,i).slice();
 							//ProcessExcel(data,file.name,dvENG2);
 							for(lm=0;lm<cOff2.length;lm++)
 							{if (!cOff.includes(cOff2[lm])){
@@ -105,7 +105,7 @@ function Upload(dvENG2) {
 	
 };
 
-function ProcessExcel(data,nmid,dvENG2) {
+function ProcessExcel(data,nmid,dvENG2,ifile) {
 	for (x = 0; x < document.getElementsByTagName('input').length; x++) {
 		if (document.getElementsByTagName('input').item(x).type == 'checkbox') {
 			let cn = document.getElementsByTagName('input').item(x);
@@ -465,6 +465,7 @@ function ProcessExcel(data,nmid,dvENG2) {
 		['COMP222', 'COMP226'],
 		['COMP324', 'COMP325'],
 		['COME221', 'COME411'],
+		['POWE344', 'COME411'],
 		['BMGT002', 'MGMT002']
 	];
 	
@@ -495,8 +496,11 @@ function ProcessExcel(data,nmid,dvENG2) {
 			else if (TECH.includes(course)) {
 				STUDENT[i][3] = 3
 			} else {
-				STUDENT[i][3] = 2
-				prob.push(course)
+				if (STUDENT[i][1]=='POWE344')
+					STUDENT[i][3] = 3
+				else
+				{STUDENT[i][3] = 2
+				prob.push(course)}
 			}
 			STUDENT[i][4] = "UG"
 			STUDENT[i][5] = "/"
@@ -709,9 +713,17 @@ function ProcessExcel(data,nmid,dvENG2) {
 	//FILL TABLES
 	//Create a HTML Table element.
 	var table = document.createElement("table");
+	table.className="disoki"
 	table.border = "1";
 	table.style.width = '100%';
+	//table.style.marginLeft='0';
 	//Add the header row.
+	
+	var ENGrow = table.insertRow(-1);
+	var headerCell = document.createElement("TH");
+	headerCell.innerHTML =filename;
+	//headerCell.colspan=8;
+	ENGrow.appendChild(headerCell);
 	var ENGrow = table.insertRow(-1);
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "Term";
@@ -759,27 +771,33 @@ function ProcessExcel(data,nmid,dvENG2) {
 	row.style.backgroundColor = "#eee";
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "General Education Requirements";
-	headerCell.colSpan = 4;
+	headerCell.colSpan = 3;
 	row.appendChild(headerCell);
-	var x = document.createElement("label");
-	x.innerHTML = "Required  ";
-	var z = document.createElement("br");
+	var x = document.createElement("TH");
+	x.innerHTML = "Earned:  "+ ENG_C;
+	//x.colSpan = 2;
 	row.appendChild(x);
-	row.appendChild(z);
-	var y = document.createElement("INPUT");
-	y.value = GE_Min;
-	row.appendChild(y);
+	//var tot = document.createElement("INPUT");
+	//tot.value = ENG_C;
+	//row.appendChild(tot);
+	report.push(ENG_C);
+	var x = document.createElement("TH");
+	x.innerHTML = "Required:  "+GE_Min;
+	//var z = document.createElement("br");
+	row.appendChild(x);
+	//row.appendChild(z);
+	//var y = document.createElement("TH");
+	//y.innerHTML = GE_Min;
+	//row.appendChild(y);
+	//var headerCell = document.createElement("TH");
+	//headerCell.innerHTML = "";
+	//headerCell.colSpan = 2;
+	//row.appendChild(headerCell);
+	
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "";
-	headerCell.colSpan = 2;
+	headerCell.colSpan = 4;
 	row.appendChild(headerCell);
-	var x = document.createElement("label");
-	x.innerHTML = "Earned Credits  ";
-	row.appendChild(x);
-	var tot = document.createElement("INPUT");
-	tot.value = ENG_C
-	row.appendChild(tot);
-	report.push(tot.value);
 	//Add the data rows from Excel file.
 	let probFlag = 0
 	for (var i = 0; i < ENG_F.length; i++) {
@@ -804,8 +822,37 @@ function ProcessExcel(data,nmid,dvENG2) {
 	row.style.backgroundColor = "#eee";
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "Basic Sciences and Mathematics";
+	headerCell.colSpan = 3;
+	row.appendChild(headerCell);
+	
+	var x = document.createElement("TH");
+	x.innerHTML = "Earned:  "+ BASIC_C;
+	//x.colSpan = 2;
+	row.appendChild(x);
+	//var tot = document.createElement("INPUT");
+	//tot.value = ENG_C;
+	//row.appendChild(tot);
+	report.push(BASIC_C);
+	var x = document.createElement("TH");
+	x.innerHTML = "Required:  "+BASIC_Min;
+	//var z = document.createElement("br");
+	row.appendChild(x);
+	//row.appendChild(z);
+	//var y = document.createElement("TH");
+	//y.innerHTML = GE_Min;
+	//row.appendChild(y);
+	//var headerCell = document.createElement("TH");
+	//headerCell.innerHTML = "";
+	//headerCell.colSpan = 2;
+	//row.appendChild(headerCell);
+	
+	var headerCell = document.createElement("TH");
+	headerCell.innerHTML = "";
 	headerCell.colSpan = 4;
 	row.appendChild(headerCell);
+	
+	
+	/*
 	var x = document.createElement("label");
 	x.innerHTML = "Required  ";
 	var z = document.createElement("br");
@@ -826,6 +873,7 @@ function ProcessExcel(data,nmid,dvENG2) {
 	row.appendChild(tot);
 	
 	report.push(tot.value);
+	*/
 	//Add the data rows from Excel file.
 	for (var i = 0; i < BASIC_F.length; i++) {
 		//Add the data row.
@@ -842,8 +890,37 @@ function ProcessExcel(data,nmid,dvENG2) {
 	row.style.backgroundColor = "#eee";
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "General Engineering topics";
+	headerCell.colSpan = 3;
+	row.appendChild(headerCell);
+	var x = document.createElement("TH");
+	x.innerHTML = "Earned:  "+ GE_C;
+	//x.colSpan = 2;
+	row.appendChild(x);
+	//var tot = document.createElement("INPUT");
+	//tot.value = ENG_C;
+	//row.appendChild(tot);
+	report.push(GE_C);
+	var x = document.createElement("TH");
+	x.innerHTML = "Required:  "+ENG_Min;
+	//var z = document.createElement("br");
+	row.appendChild(x);
+	//row.appendChild(z);
+	//var y = document.createElement("TH");
+	//y.innerHTML = GE_Min;
+	//row.appendChild(y);
+	//var headerCell = document.createElement("TH");
+	//headerCell.innerHTML = "";
+	//headerCell.colSpan = 2;
+	//row.appendChild(headerCell);
+	
+	var headerCell = document.createElement("TH");
+	headerCell.innerHTML = "";
 	headerCell.colSpan = 4;
 	row.appendChild(headerCell);
+	
+	
+	
+	/*
 	var x = document.createElement("label");
 	x.innerHTML = "Required  ";
 	var z = document.createElement("br");
@@ -863,6 +940,7 @@ function ProcessExcel(data,nmid,dvENG2) {
 	tot.value = GE_C;
 	row.appendChild(tot);
 	report.push(tot.value);
+	*/
 	//Add the data rows from Excel file.
 	for (var i = 0; i < GE_F.length; i++) {
 		//Add the data row.
@@ -879,8 +957,36 @@ function ProcessExcel(data,nmid,dvENG2) {
 	row.style.backgroundColor = "#eee";
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "A- Engineering topics from outside the program";
+	headerCell.colSpan = 3;
+	row.appendChild(headerCell);
+	var x = document.createElement("TH");
+	x.innerHTML = "Earned:  "+ OUT_C;
+	//x.colSpan = 2;
+	row.appendChild(x);
+	//var tot = document.createElement("INPUT");
+	//tot.value = ENG_C;
+	//row.appendChild(tot);
+	report.push(OUT_C);
+	var x = document.createElement("TH");
+	x.innerHTML = "Required:  "+OUT_Min;
+	//var z = document.createElement("br");
+	row.appendChild(x);
+	//row.appendChild(z);
+	//var y = document.createElement("TH");
+	//y.innerHTML = GE_Min;
+	//row.appendChild(y);
+	//var headerCell = document.createElement("TH");
+	//headerCell.innerHTML = "";
+	//headerCell.colSpan = 2;
+	//row.appendChild(headerCell);
+	
+	var headerCell = document.createElement("TH");
+	headerCell.innerHTML = "";
 	headerCell.colSpan = 4;
 	row.appendChild(headerCell);
+	
+	
+	/*
 	var x = document.createElement("label");
 	x.innerHTML = "Required  ";
 	var z = document.createElement("br");
@@ -900,6 +1006,7 @@ function ProcessExcel(data,nmid,dvENG2) {
 	tot.value = OUT_C;
 	row.appendChild(tot);
 	report.push(tot.value);
+	*/
 	//Add the data rows from Excel file.
 	for (var i = 0; i < OUT_F.length; i++) {
 		//Add the data row.
@@ -916,8 +1023,35 @@ function ProcessExcel(data,nmid,dvENG2) {
 	row.style.backgroundColor = "#eee";
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "B- CE Core";
+	headerCell.colSpan = 3;
+	row.appendChild(headerCell);
+	var x = document.createElement("TH");
+	x.innerHTML = "Earned:  "+ CORE_C;
+	//x.colSpan = 2;
+	row.appendChild(x);
+	//var tot = document.createElement("INPUT");
+	//tot.value = ENG_C;
+	//row.appendChild(tot);
+	report.push(CORE_C);
+	var x = document.createElement("TH");
+	x.innerHTML = "Required:  "+CORE_Min;
+	//var z = document.createElement("br");
+	row.appendChild(x);
+	//row.appendChild(z);
+	//var y = document.createElement("TH");
+	//y.innerHTML = GE_Min;
+	//row.appendChild(y);
+	//var headerCell = document.createElement("TH");
+	//headerCell.innerHTML = "";
+	//headerCell.colSpan = 2;
+	//row.appendChild(headerCell);
+	
+	var headerCell = document.createElement("TH");
+	headerCell.innerHTML = "";
 	headerCell.colSpan = 4;
 	row.appendChild(headerCell);
+	
+	/*
 	var x = document.createElement("label");
 	x.innerHTML = "Required  ";
 	var z = document.createElement("br");
@@ -936,7 +1070,7 @@ function ProcessExcel(data,nmid,dvENG2) {
 	var tot = document.createElement("INPUT");
 	tot.value = CORE_C;
 	row.appendChild(tot);
-	report.push(tot.value);
+	report.push(tot.value);*/
 	//Add the data rows from Excel file.
 	for (var i = 0; i < CORE_F.length; i++) {
 		//Add the data row.
@@ -953,8 +1087,36 @@ function ProcessExcel(data,nmid,dvENG2) {
 	row.style.backgroundColor = "#eee";
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "C-Technical Elective";
+	headerCell.colSpan = 3;
+	row.appendChild(headerCell);
+	var x = document.createElement("TH");
+	x.innerHTML = "Earned:  "+ TECH_C;
+	//x.colSpan = 2;
+	row.appendChild(x);
+	//var tot = document.createElement("INPUT");
+	//tot.value = ENG_C;
+	//row.appendChild(tot);
+	report.push(TECH_C);
+	
+	var x = document.createElement("TH");
+	x.innerHTML = "Required:  "+TECH_Min;
+	//var z = document.createElement("br");
+	row.appendChild(x);
+	//row.appendChild(z);
+	//var y = document.createElement("TH");
+	//y.innerHTML = GE_Min;
+	//row.appendChild(y);
+	//var headerCell = document.createElement("TH");
+	//headerCell.innerHTML = "";
+	//headerCell.colSpan = 2;
+	//row.appendChild(headerCell);
+	
+	var headerCell = document.createElement("TH");
+	headerCell.innerHTML = "";
 	headerCell.colSpan = 4;
 	row.appendChild(headerCell);
+	
+	/*
 	var x = document.createElement("label");
 	x.innerHTML = "Required  ";
 	var z = document.createElement("br");
@@ -973,7 +1135,7 @@ function ProcessExcel(data,nmid,dvENG2) {
 	var tot = document.createElement("INPUT");
 	tot.value = TECH_C;
 	row.appendChild(tot);
-	report.push(tot.value);
+	report.push(tot.value);*/
 	//Add the data rows from Excel file.
 	for (var i = 0; i < TECH_F.length; i++) {
 		//Add the data row.
@@ -990,8 +1152,35 @@ function ProcessExcel(data,nmid,dvENG2) {
 	row.style.backgroundColor = "#eee";
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "Other";
+	headerCell.colSpan = 3;
+	row.appendChild(headerCell);
+	var x = document.createElement("TH");
+	x.innerHTML = "Earned:  "+ other_C;
+	//x.colSpan = 2;
+	row.appendChild(x);
+	//var tot = document.createElement("INPUT");
+	//tot.value = ENG_C;
+	//row.appendChild(tot);
+	report.push(other_C);
+	var x = document.createElement("TH");
+	x.innerHTML = "Required: 0 ";
+	//var z = document.createElement("br");
+	row.appendChild(x);
+	//row.appendChild(z);
+	//var y = document.createElement("TH");
+	//y.innerHTML = GE_Min;
+	//row.appendChild(y);
+	//var headerCell = document.createElement("TH");
+	//headerCell.innerHTML = "";
+	//headerCell.colSpan = 2;
+	//row.appendChild(headerCell);
+	
+	var headerCell = document.createElement("TH");
+	headerCell.innerHTML = "";
 	headerCell.colSpan = 4;
 	row.appendChild(headerCell);
+	
+	/*
 	var x = document.createElement("label");
 	x.innerHTML = "Required  ";
 	var z = document.createElement("br");
@@ -1010,7 +1199,7 @@ function ProcessExcel(data,nmid,dvENG2) {
 	var tot = document.createElement("INPUT");
 	tot.value = other_C;
 	row.appendChild(tot);
-	report.push(tot.value);
+	report.push(tot.value);*/
 	//Add the data rows from Excel file.
 	for (var i = 0; i < other_F.length; i++) {
 		//Add the data row.
@@ -1028,25 +1217,31 @@ function ProcessExcel(data,nmid,dvENG2) {
 	row.style.backgroundColor = 'yellow';
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "";
-	headerCell.colSpan = 4;
+	headerCell.colSpan = 3;
 	row.appendChild(headerCell);
-	var x = document.createElement("label");
-	x.innerHTML = "Total Required  ";
+	var x = document.createElement("TH");
+	x.innerHTML = "Total Earned: "+total;
+	//x.colSpan=2;
 	row.appendChild(x);
-	var y = document.createElement("INPUT");
-	y.value = totalgrad;
-	row.appendChild(y);
+	//var tot = document.createElement("INPUT");
+	//tot.value = total;
+	//row.appendChild(tot);
+	report.push(total);
+	var x = document.createElement("TH");
+	x.innerHTML = "Total Required:  "+totalgrad;
+	row.appendChild(x);
+	//var y = document.createElement("INPUT");
+	//y.value = totalgrad;
+	//row.appendChild(y);
+	//var headerCell = document.createElement("TH");
+	//headerCell.innerHTML = "";
+	//headerCell.colSpan = 2;
+	//row.appendChild(headerCell);
+	
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "";
-	headerCell.colSpan = 2;
+	headerCell.colSpan = 3;
 	row.appendChild(headerCell);
-	var x = document.createElement("label");
-	x.innerHTML = "Total Earned";
-	row.appendChild(x);
-	var tot = document.createElement("INPUT");
-	tot.value = total;
-	row.appendChild(tot);
-	report.push(tot.value);
 	var row = table.insertRow(-1);
 	row.style.backgroundColor = '#8FD8D8';
 	var headerCell = document.createElement("TH");
@@ -1055,6 +1250,7 @@ function ProcessExcel(data,nmid,dvENG2) {
 	row.appendChild(headerCell);
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "";
+	
 	if (mand_st.length != mand.length) {
 		for (let r = 0; r < mand.length; r++) {
 			if (!(mand_st.includes(mand[r]))) {
@@ -1080,14 +1276,16 @@ function ProcessExcel(data,nmid,dvENG2) {
 	var table= document.createElement("table");
 	table.border = "1";
 	table.style.width = '100%';
+	table.className="disoki"
 	//Add the header row.
-	var row = table.insertRow(-1);
+	if (ifile ==0)
+	{var row = table.insertRow(-1);
 	var headerCell = document.createElement("TH");
 	
 	//if(document.getElementById("dvENG2").innerHTML=="")
 	
-	{headerCell.innerHTML = "Name and ID";
-	headerCell.style.width="220px"
+	headerCell.innerHTML = "Name and ID";
+	headerCell.style.width="9%"
 	headerCell.style.backgroundColor = "#eee";
 	row.appendChild(headerCell);
 	
@@ -1095,54 +1293,54 @@ function ProcessExcel(data,nmid,dvENG2) {
 	headerCell = document.createElement("TH");
 	
 	headerCell.innerHTML = "General Education "+GE_Min;
-	headerCell.style.width="200px"
+	headerCell.style.width="9%"
 	headerCell.style.backgroundColor = "#eee";
 	row.appendChild(headerCell);
 	
 	
 	headerCell = document.createElement("TH");
 	headerCell.innerHTML = "Basic Science and Mathematics "+BASIC_Min;
-	headerCell.style.width="200px"
+	headerCell.style.width="9%"
 	headerCell.style.backgroundColor = "#eee";
 	row.appendChild(headerCell);
 	headerCell = document.createElement("TH");
 	headerCell.innerHTML = "General Engineering "+ENG_Min;
-	headerCell.style.width="200px"
+	headerCell.style.width="9%"
 	headerCell.style.backgroundColor = "#eee";
 	row.appendChild(headerCell);
 	headerCell = document.createElement("TH");
 	headerCell.innerHTML = "Outside program "+OUT_Min;
-	headerCell.style.width="200px"
+	headerCell.style.width="9%"
 	headerCell.style.backgroundColor = "#eee";
 	row.appendChild(headerCell);
 	headerCell = document.createElement("TH");
 	headerCell.innerHTML = "Core "+CORE_Min;
-	headerCell.style.width="200px"
+	headerCell.style.width="9%"
 	headerCell.style.backgroundColor = "#eee";
 	row.appendChild(headerCell);
 	headerCell = document.createElement("TH");
 	headerCell.innerHTML = "Technical "+TECH_Min;
-	headerCell.style.width="200px"
+	headerCell.style.width="9%"
 	headerCell.style.backgroundColor = "#eee";
 	row.appendChild(headerCell);
 	headerCell = document.createElement("TH");
 	headerCell.innerHTML = "Other" +" 0";
-	headerCell.style.width="200px"
+	headerCell.style.width="9%"
 	headerCell.style.backgroundColor = "#eee";
 	row.appendChild(headerCell);
 	headerCell = document.createElement("TH");
 	headerCell.innerHTML = "Total 150";
-	headerCell.style.width="200px"
+	headerCell.style.width="9%"
 	headerCell.style.backgroundColor = "#eee";
 	row.appendChild(headerCell);
 	headerCell = document.createElement("TH");
 	headerCell.innerHTML = "Comments";
-	headerCell.style.width="200px"
+	headerCell.style.width="9%"
 	headerCell.style.backgroundColor = "#eee";
 	row.appendChild(headerCell);
 	headerCell = document.createElement("TH");
 	headerCell.innerHTML = "Courses Needed";
-	headerCell.style.width="200px"
+	headerCell.style.width="9%"
 	headerCell.style.backgroundColor = "#eee";
 	row.appendChild(headerCell);
 	
@@ -1178,12 +1376,16 @@ function ProcessExcel(data,nmid,dvENG2) {
 				{
 					newl=report[10][k]+"<br>"
 					cell.innerHTML += newl 
+					
 				}
-				cell.style.width="200px";
+
+				cell.style.width="9%";
+				//cell.style.width="200px";
 				continue
 			}
 			cell.innerHTML = report[j];
-			cell.style.width="200px";
+
+			cell.style.width="9%";
 			
 		
 			

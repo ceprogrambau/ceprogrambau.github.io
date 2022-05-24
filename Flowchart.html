@@ -35,14 +35,38 @@
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="CE Program BAU">
     <meta property="og:type" content="website">
+	
+	<style type='text/css'>
+        @media print {
+		
+            .dis{display:none;}
+            .hidecheck{ display: none; }
+			#dvENG{
+			margin-top:170px !important;
+			visibility:visible !important;
+			align:center;
+			width:80%}
+			#dvENG2{visibility:visible !important;
+			align:center;
+			width:80%}
+			.disoki{border-collapse: collapse;}
+			<!--body #dvENG{visibility:visible !important;}-->
+			
+			
+        }
+</style>
   </head>
-  <body data-home-page="CE-Program-BAU.html" data-home-page-title="CE Program BAU" class="u-body"><header class=" u-clearfix u-header u-section-row-container" id="sec-2259"><div class="u-section-rows">
+  <body data-home-page="CE-Program-BAU.html" data-home-page-title="CE Program BAU" class="u-body"><div class="dis"><header class=" u-clearfix u-header u-section-row-container" id="sec-2259">
+  
+  <div class="u-section-rows">
+  
         <div class="u-clearfix u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="sec-6ae8">
           <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-align-center u-text u-text-default u-text-palette-2-light-1 u-text-1">
               <span class="u-text-palette-3-base">Computer Engineering</span>
               <br>Beirut Arab University
             </h1>
+			
             <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="860" data-image-height="887">
               <img src="images/667-6676713_beirut-arab-university-logo-png-download-beirut-arab.png" class="u-logo-image u-logo-image-1">
             </a>
@@ -108,6 +132,7 @@
           
         </div>
       </div></header><br><br>
+	  
 <div style="margin-left:200px;"><label>Name and ID: <input type="text" id="nameid" size=50"></label><br><br>
 		<input type="file" id="fileUpload"  name="filefield" multiple="multiple"/>
 		<input type="button" id="upload" value="Upload" onclick="Upload(dvENG2)" />
@@ -200,6 +225,8 @@
 				<div class="c10 tick" style="top:1367px;" value="3" id="COMP452"></div>
       </div></div>
     </section></a>
+	</div><!--end of dis class-->
+
 		   <section class="u-align-left u-clearfix u-image u-section-8" id="carousel_767c" >
       <div class="u-clearfix u-sheet u-sheet-1">
         <section width="100%">
@@ -332,11 +359,12 @@
 		
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/xlsx.full.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/jszip.js"></script>
+		<div class="diskok" align=center >
 		<p></p>
 		<p></p>
-		<div id="dvENG"></div> 
-		<div id="dvENG2"></div>
-		
+		<div id="dvENG" class="diskok" ></div> 
+		<div id="dvENG2"class="diskok" ></div>
+		</div>  <!--end of disok-->
 		<!--<div id="dvExcel"></div> 
 		<div id="here">HERE</div>
 		<div id="dvENG"></div> 
@@ -350,15 +378,17 @@
         var dvENG2 = document.getElementById("dvENG2");
 
         </script><br>
+		<div class="dis">
 		<p style="font-size:40px;margin-left:0px;">Courses needed for all students</p>
 		<textarea id="coursoff" rows="10" cols="100" style="font-size:30px; margin-left:0px;"></textarea>
+		</div>
 		<div ></div>
 		<p id="report"></p>
 		</section>
       </div>
     </section>
-    
   
+	<div class="hidecheck" style="display:'none'">
     <section class="u-align-center u-clearfix u-section-11 hiddenClass" id="sec-b316">
       <div class="u-clearfix u-sheetc u-valign-middle u-sheet-1">
 
@@ -623,6 +653,7 @@
         </div>
       </div>
     </section>
+	</div> <!--end of hidecheck-->
        
 
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-9688"><div class="u-clearfix u-sheet u-sheet-1">
