@@ -1364,6 +1364,9 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		
 		report[9] += fsum + " credits FRESHMAN";
 	}
+	if(!mand_st.includes('IC003'))
+		report[9] += 'IC003 Required';
+	
 		//Add the data row.
 		var row = table.insertRow(-1);
 		for (j = 0; j < 11; j++) {
