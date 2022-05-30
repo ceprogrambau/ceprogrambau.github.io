@@ -466,6 +466,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		['COMP324', 'COMP325'],
 		['COME221', 'COME411'],
 		['POWE344', 'COME411'],
+		['POWE210', 'POWE212'],
 		['BMGT002', 'MGMT002']
 	];
 	
