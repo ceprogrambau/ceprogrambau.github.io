@@ -1259,6 +1259,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			}
 		}
 		headerCell.innerHTML += "must be taken.";
+		report[9]= headerCell.innerHTML;
 	}
 	headerCell.colSpan = 4;
 	row.appendChild(headerCell);
@@ -1365,8 +1366,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		
 		report[9] += fsum + " credits FRESHMAN";
 	}
-	if(!mand_st.includes('IC003'))
-		report[9] += 'IC003 Required';
+
 	
 		//Add the data row.
 		var row = table.insertRow(-1);
