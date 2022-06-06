@@ -723,7 +723,8 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	var ENGrow = table.insertRow(-1);
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML =filename;
-	//headerCell.colspan=8;
+	headerCell.style.backgroundColor="yellow"
+	headerCell.rowspan=2;
 	ENGrow.appendChild(headerCell);
 	var ENGrow = table.insertRow(-1);
 	var headerCell = document.createElement("TH");
@@ -776,6 +777,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	row.appendChild(headerCell);
 	var x = document.createElement("TH");
 	x.innerHTML = "Earned:  "+ ENG_C;
+	x.style.backgroundColor="yellow"
 	//x.colSpan = 2;
 	row.appendChild(x);
 	//var tot = document.createElement("INPUT");
@@ -784,6 +786,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	report.push(ENG_C);
 	var x = document.createElement("TH");
 	x.innerHTML = "Required:  "+GE_Min;
+	x.style.backgroundColor="yellow"
 	//var z = document.createElement("br");
 	row.appendChild(x);
 	//row.appendChild(z);
@@ -809,6 +812,8 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			//Add the data cells.
 			var cell = row.insertCell(-1);
 			cell.innerHTML = ENG_F[i][j];
+			if(mand.includes(cell.innerHTML))
+				row.style.color = "blue"
 			if (cell.innerHTML == "Active")
 				row.style.backgroundColor = "#FFF200"
 			if (prob.includes(cell.innerHTML))
@@ -828,6 +833,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	
 	var x = document.createElement("TH");
 	x.innerHTML = "Earned:  "+ BASIC_C;
+	x.style.backgroundColor="yellow"
 	//x.colSpan = 2;
 	row.appendChild(x);
 	//var tot = document.createElement("INPUT");
@@ -836,6 +842,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	report.push(BASIC_C);
 	var x = document.createElement("TH");
 	x.innerHTML = "Required:  "+BASIC_Min;
+	x.style.backgroundColor="yellow"
 	//var z = document.createElement("br");
 	row.appendChild(x);
 	//row.appendChild(z);
@@ -895,6 +902,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	row.appendChild(headerCell);
 	var x = document.createElement("TH");
 	x.innerHTML = "Earned:  "+ GE_C;
+	x.style.backgroundColor="yellow"
 	//x.colSpan = 2;
 	row.appendChild(x);
 	//var tot = document.createElement("INPUT");
@@ -903,6 +911,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	report.push(GE_C);
 	var x = document.createElement("TH");
 	x.innerHTML = "Required:  "+ENG_Min;
+	x.style.backgroundColor="yellow"
 	//var z = document.createElement("br");
 	row.appendChild(x);
 	//row.appendChild(z);
@@ -962,6 +971,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	row.appendChild(headerCell);
 	var x = document.createElement("TH");
 	x.innerHTML = "Earned:  "+ OUT_C;
+	x.style.backgroundColor="yellow"
 	//x.colSpan = 2;
 	row.appendChild(x);
 	//var tot = document.createElement("INPUT");
@@ -970,6 +980,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	report.push(OUT_C);
 	var x = document.createElement("TH");
 	x.innerHTML = "Required:  "+OUT_Min;
+	x.style.backgroundColor="yellow"
 	//var z = document.createElement("br");
 	row.appendChild(x);
 	//row.appendChild(z);
@@ -1028,6 +1039,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	row.appendChild(headerCell);
 	var x = document.createElement("TH");
 	x.innerHTML = "Earned:  "+ CORE_C;
+	x.style.backgroundColor="yellow"
 	//x.colSpan = 2;
 	row.appendChild(x);
 	//var tot = document.createElement("INPUT");
@@ -1036,6 +1048,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	report.push(CORE_C);
 	var x = document.createElement("TH");
 	x.innerHTML = "Required:  "+CORE_Min;
+	x.style.backgroundColor="yellow"
 	//var z = document.createElement("br");
 	row.appendChild(x);
 	//row.appendChild(z);
@@ -1092,6 +1105,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	row.appendChild(headerCell);
 	var x = document.createElement("TH");
 	x.innerHTML = "Earned:  "+ TECH_C;
+	x.style.backgroundColor="yellow"
 	//x.colSpan = 2;
 	row.appendChild(x);
 	//var tot = document.createElement("INPUT");
@@ -1101,6 +1115,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	
 	var x = document.createElement("TH");
 	x.innerHTML = "Required:  "+TECH_Min;
+	x.style.backgroundColor="yellow"
 	//var z = document.createElement("br");
 	row.appendChild(x);
 	//row.appendChild(z);
@@ -1157,6 +1172,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	row.appendChild(headerCell);
 	var x = document.createElement("TH");
 	x.innerHTML = "Earned:  "+ other_C;
+	x.style.backgroundColor="yellow"
 	//x.colSpan = 2;
 	row.appendChild(x);
 	//var tot = document.createElement("INPUT");
@@ -1165,6 +1181,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	report.push(other_C);
 	var x = document.createElement("TH");
 	x.innerHTML = "Required: 0 ";
+	x.style.backgroundColor="yellow"
 	//var z = document.createElement("br");
 	row.appendChild(x);
 	//row.appendChild(z);
@@ -1260,6 +1277,10 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		}
 		headerCell.innerHTML += "must be taken.";
 		report[9]= headerCell.innerHTML;
+	}
+	else{
+		headerCell.innerHTML += "All Mandatory courses are taken (IC3, Arabic, General English, Human Rights)"
+		
 	}
 	headerCell.colSpan = 4;
 	row.appendChild(headerCell);
