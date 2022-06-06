@@ -441,9 +441,9 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	let CORE_F = [];
 	let TECH_F = [];
 	let other_F = [];
-	let pass = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D', 'P', 'TR'];
+	let pass = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D','D-', 'P', 'TR'];
 	let fail = ['D-', 'F'];
-	let grade = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D', 'P', 'TR', 'D-', 'F', 'W']
+	let grade = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D','D-','P', 'TR', 'F', 'W','NP']
 	let mand = ['IC003', 'ARAB001', 'ENGL001', 'BLAW001'];
 	let mand_st = [];
 	let fail_c = [];
@@ -453,6 +453,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	let nsum = 0;
 	let totalgrad = 150;
 	let crl = [];
+	let dminusflag = 0
 	let alter = [
 		['COMP333', 'COMP337'],
 		['COMP462', 'COMP364'],
@@ -512,7 +513,25 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		sum += STUDENT[i][3];
 		//check for fail
 		if (fail.includes(STUDENT[i][5])) {
+			
+			//check if a D- course is a prereq, if not count it
+			if(STUDENT[i][5] == 'D-'){
+				for (ij=0;ij<prereq.length;ij++){
+					for(ji=1;ji<prereq[ij].length;ji++){
+						if (STUDENT[i][1]== prereq[ij][ji]){
+							dminusflag=1
+						}
+					}
+				}
+				if (dminusflag==1){
+					fail_c.push("[" + STUDENT[i] + "]");
+					dminusflag = 0
+					continue
+				}
+			}
+		if (STUDENT[i][5] == 'F'){
 			fail_c.push("[" + STUDENT[i] + "]");
+		}
 		}
 		//check for incomplete
 		if (STUDENT[i][5] == 'I') {
@@ -540,6 +559,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		if (mand.includes(course)) {
 			mand_st.push(STUDENT[i][1]);
 		}
+		
 		//check for groups and total
 		if (GE.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/")) {
 			GE_C += STUDENT[i][3];
@@ -621,7 +641,11 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			for (j = 0; j < 8; j++) {
 				other_F[other_F.length - 1][j] = STUDENT[i][j];
 			}
-		} else {}
+		} 
+		
+		else {
+			
+		}
 		//document.getElementById("trg").innerHTML=course.value;
 		if (cours) {
 			if (active.includes(course))
