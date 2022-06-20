@@ -750,6 +750,12 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	headerCell.style.backgroundColor="yellow"
 	headerCell.rowspan=2;
 	ENGrow.appendChild(headerCell);
+	
+	var headerCell = document.createElement("TH");
+	headerCell.innerHTML = "Courses in blue are mandatory for graduation. <br> Bold Green Courses are prereq for fyp + ENGL001";
+	headerCell.colSpan=7;
+	ENGrow.appendChild(headerCell);
+	
 	var ENGrow = table.insertRow(-1);
 	var headerCell = document.createElement("TH");
 	headerCell.innerHTML = "Term";
@@ -827,6 +833,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	headerCell.colSpan = 4;
 	row.appendChild(headerCell);
 	//Add the data rows from Excel file.
+	let fyp = ['ENGL001', 'ENGL211', 'ENGL300', 'COMP500']
 	let probFlag = 0
 	for (var i = 0; i < ENG_F.length; i++) {
 		
@@ -838,6 +845,12 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			cell.innerHTML = ENG_F[i][j];
 			if(mand.includes(cell.innerHTML))
 				row.style.color = "blue"
+			if(fyp.includes(cell.innerHTML)){
+				
+				row.style.fontWeight="bold"
+				if(cell.innerHTML!='ENGL001')
+					row.style.color= "green"
+			}
 			if (cell.innerHTML == "Active")
 				row.style.backgroundColor = "#FFF200"
 			if (prob.includes(cell.innerHTML))
@@ -1117,6 +1130,11 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			//Add the data cells.
 			var cell = row.insertCell(-1);
 			cell.innerHTML = CORE_F[i][j];
+			if(fyp.includes(cell.innerHTML)){
+				
+				row.style.fontWeight="bold"
+				row.style.color= "green"
+			}
 			if (cell.innerHTML == "Active")
 				row.style.backgroundColor = "#FFF200"
 		}
