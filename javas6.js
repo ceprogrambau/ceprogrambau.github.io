@@ -241,12 +241,9 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		'POWE001',
 		'CMPS004',
 		'PTRE201',
-		'PHED003',
-		'INTEA100',
-		'INTEA101',
-		'INTEA102',
-		'INTEA103',
-		'INTEA104'
+		'PHED003'
+	
+		
 	];
 	let FRESH=[
 	'MATH112',
@@ -342,7 +339,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		['COMP328', 'COMP222'],
 		['COMP337', 'COMP231'],
 		['COMP344', 'COMP232'],
-		['COMP361', 'MATH238', 'POWE212'],
+		['COMP361', 'MATH283', 'POWE212'],
 		['COMP364', 'COMP215'],
 		['COMP462', 'COMP215'],
 		['COMP423', 'COMP226'],
