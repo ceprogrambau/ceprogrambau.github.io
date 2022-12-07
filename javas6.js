@@ -154,7 +154,8 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	let GE = [
 		'MCHE213',
 		'INME221',
-		'COMP208'
+		'COMP208',
+		'INME423'
 	];
 	let BASIC = [
 		'MATH281',
@@ -440,7 +441,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	let other_F = [];
 	let pass = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D','D-', 'P', 'TR'];
 	let fail = ['D-', 'F'];
-	let grade = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D','D-','P', 'TR', 'F', 'W','NP']
+	let grade = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D','D-','P', 'TR', 'F', 'W','NP','AW']
 	let mand = ['IC003', 'ARAB001', 'ENGL001', 'BLAW001'];
 	let mand_st = [];
 	let fail_c = [];
