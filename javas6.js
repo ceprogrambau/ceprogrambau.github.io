@@ -290,6 +290,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		'COMP543L'
 	];
 	let TECH = [
+		'COMP474',
 		'COMP438',
 		'COMP444',
 		'COMP455',
@@ -439,9 +440,9 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	let CORE_F = [];
 	let TECH_F = [];
 	let other_F = [];
-	let pass = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D','D-', 'P', 'TR'];
+	let pass = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D','D-', 'P', 'TR','INT'];
 	let fail = ['D-', 'F'];
-	let grade = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D','D-','P', 'TR', 'F', 'W','NP','AW']
+	let grade = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D','D-','P', 'TR','INT', 'F', 'W','NP','AW']
 	let mand = ['IC003', 'ARAB001', 'ENGL001', 'BLAW001'];
 	let mand_st = [];
 	let fail_c = [];
