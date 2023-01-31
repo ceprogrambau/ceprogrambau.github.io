@@ -155,7 +155,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		'MCHE213',
 		'INME221',
 		'COMP208',
-		'INME423'
+		
 	];
 	let BASIC = [
 		'MATH281',
@@ -467,7 +467,8 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		['COME221', 'COME411'],
 		['POWE344', 'COME411'],
 		['POWE210', 'POWE212'],
-		['BMGT002', 'MGMT002']
+		['BMGT002', 'MGMT002'],
+		['INME423', 'INME482']
 	];
 	
 	let active = [];
@@ -546,8 +547,8 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			if (STUDENT[i][5] == "/")
 				continue
 			
-			//if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) >= grade.indexOf(STUDENT[j][5]) ) {
-			if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) > 14 ) {
+			if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) > grade.indexOf(STUDENT[j][5]) || grade.indexOf(STUDENT[i][5]) > 14 ) {
+			//if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) > 14 ) {
 				dup.push("[" + STUDENT[i] + "]");
 			}
 		}
