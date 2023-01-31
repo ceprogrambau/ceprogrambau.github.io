@@ -500,6 +500,8 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			} else {
 				if (STUDENT[i][1]=='POWE344')
 					STUDENT[i][3] = 3
+				if (STUDENT[i][1]=='COMP431')
+					STUDENT[i][3] = 3
 				else
 				{STUDENT[i][3] = 2
 				prob.push(course)}
@@ -662,9 +664,16 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	}
 	//tick and check technical
 	for (i = 1; i <= TECH_L.length && i <= 4; i++) {
-		document.getElementById("TE" + i).style.borderColor = '#00ff00';
 		document.getElementById("TE" + i).style.visibility = 'visible';
 		document.getElementById("c" + "TE" + i).checked = true;
+		
+		for(kl=0;kl<i;kl++){
+			//alert(TECH_F[kl][1])
+			if(active.includes(TECH_F[kl][1]))
+				document.getElementById("TE" + i).style.borderColor = 'yellow';
+			else
+				document.getElementById("TE" + i).style.borderColor = '#00ff00';
+		}
 	}
 	//tick and check general
 	for (i = 1; i <= elec && i <= 3; i++) {
