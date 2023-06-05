@@ -242,7 +242,9 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		'POWE001',
 		'CMPS004',
 		'PTRE201',
-		'PHED003'
+		'PHED003',
+		'HESC001',
+		'MCHE005'
 	
 		
 	];
@@ -305,6 +307,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		'COMP534',
 		'COMP535',
 		'COMP541',
+		'COMP551',
 		'COMP554',
 		'COMP555',
 		'COMP556',
@@ -440,7 +443,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	let CORE_F = [];
 	let TECH_F = [];
 	let other_F = [];
-	let pass = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D','D-', 'P', 'TR','INT','INTP'];
+	let pass = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D', 'P', 'TR','INT','INTP'];
 	let fail = ['D-', 'F'];
 	let grade = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D','D-','P', 'TR','INT','INTP', 'F', 'W','NP','AW']
 	let mand = ['IC003', 'ARAB001', 'ENGL001', 'BLAW001'];
@@ -515,7 +518,20 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		sum += STUDENT[i][3];
 		//check for fail
 		if (fail.includes(STUDENT[i][5])) {
-			
+			if(STUDENT[i][5] == 'D-' && STUDENT[i][7]=='I'){
+				fail_c.push("[" + STUDENT[i] + "]");
+				let course = STUDENT[i][1];
+				cours = document.getElementById(course);
+				if(cours)
+				{	//alert(course)
+					document.getElementById(course).style.borderColor = "red";
+					document.getElementById(course).style.visibility = 'visible';
+					continue;
+				}
+				//document.getElementById("c" + course).checked = true;
+				
+			}
+			/*
 			//check if a D- course is a prereq, if not count it
 			if(STUDENT[i][5] == 'D-'){
 				for (ij=0;ij<prereq.length;ij++){
@@ -531,6 +547,8 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 					continue
 				}
 			}
+			*/
+		
 		if (STUDENT[i][5] == 'F'){
 			fail_c.push("[" + STUDENT[i] + "]");
 		}
@@ -652,7 +670,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		//document.getElementById("trg").innerHTML=course.value;
 		if (cours) {
 			if (active.includes(course))
-				document.getElementById(course).style.borderColor = "yellow";
+			document.getElementById(course).style.borderColor = "yellow";
 			document.getElementById(course).style.visibility = 'visible';
 			document.getElementById("c" + course).checked = true;
 		}
@@ -701,6 +719,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 										preFlag += 1;
 										break;
 									}
+									
 								}
 							}
 							if (preFlag == prereq[n].length - 1) {
