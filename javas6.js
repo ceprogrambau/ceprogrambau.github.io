@@ -518,7 +518,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		sum += STUDENT[i][3];
 		//check for fail
 		if (fail.includes(STUDENT[i][5])) {
-			if(STUDENT[i][5] == 'D-' && STUDENT[i][7]=='I'){
+			if(STUDENT[i][5] == 'D-' && STUDENT[i][7]!='A'){
 				fail_c.push("[" + STUDENT[i] + "]");
 				let course = STUDENT[i][1];
 				cours = document.getElementById(course);
