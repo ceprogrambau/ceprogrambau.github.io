@@ -244,7 +244,8 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		'PTRE201',
 		'PHED003',
 		'HESC001',
-		'MCHE005'
+		'MCHE005',
+		'BMKT001'
 	
 		
 	];
@@ -325,6 +326,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	];
 	//course,prereq
 	let prereq = [
+		['COMP505','COMP454','COME580']
 		['COMP232', 'COMP210'],
 		['COME223', 'POWE212'],
 		['COME411', 'COME223'],
