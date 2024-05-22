@@ -574,7 +574,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			if (i == j) {
 				continue;
 			}
-			if (equal.includes("[" + STUDENT[i] + "]"))
+			if (equal.includes("[" + STUDENT[i][1] + "]"))
 				continue
 			if (STUDENT[i][5] == "/")
 				continue
@@ -582,9 +582,10 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) > grade.indexOf(STUDENT[j][5]) || grade.indexOf(STUDENT[i][5]) > 14 ) {
 			//if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) > 14 ) {
 				dup.push("[" + STUDENT[i] + "]");
-			}if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) == grade.indexOf(STUDENT[j][5])  ) {
+			}
+			if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) == grade.indexOf(STUDENT[j][5])  ) {
 			//if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) > 14 ) {
-				equal.push("[" + STUDENT[i] + "]");
+				equal.push("[" + STUDENT[i][1] + "]");
 			}
 		}
 		if (dup.includes("[" + STUDENT[i] + "]") || inc.includes("[" + STUDENT[i] + "]")) {
