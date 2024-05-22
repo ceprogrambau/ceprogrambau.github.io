@@ -260,7 +260,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		'COME411'
 	];
 	let CORE = [
-		'COMP431',
+		
 		'COMP211',
 		'ENGR002',
 		'COMP210',
@@ -292,6 +292,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		'COMP543L'
 	];
 	let TECH = [
+		'COMP431',
 		'COMP474',
 		'COMP438',
 		'COMP444',
