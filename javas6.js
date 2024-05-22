@@ -571,16 +571,17 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		//check for duplicates and 
 		if(STUDENT[i][5]=='W')
 				continue;
+		if (equal.includes(STUDENT[i][1]))
+			{	
+				//equalflag = 1;
+				
+				continue;
+			}
 		for (let j = 0; j < STUDENT.length; j++) {
 			if (i == j) {
 				continue;
 			}
-			if (equal.includes(STUDENT[i][1]))
-			{	
-				//equalflag = 1;
-				dup.push("[" + STUDENT[i] + "]");
-				continue;
-			}
+			
 			if (STUDENT[i][5] == "/")
 				continue
 			
