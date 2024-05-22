@@ -576,9 +576,10 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 				continue;
 			}
 			if (equal.includes(STUDENT[i][1])
-				alert(STUDENT[i][1])
+			{	
 				equalflag = 1
 				continue
+			}
 			if (STUDENT[i][5] == "/")
 				continue
 			
