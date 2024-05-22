@@ -479,8 +479,9 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		['POWE210', 'POWE212'],
 		['BMGT002', 'MGMT002'],
 		['INME423', 'INME482'],
-		['COMP500','CVLE500'],
-		['COMP500','CHME500']
+		['CVLE500','COMP500'],
+		['CHME500','COMP500']
+
 		
 	];
 	
