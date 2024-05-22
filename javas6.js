@@ -560,7 +560,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		}
 		}
 		//check for incomplete
-		if (STUDENT[i][7] == 'I') {
+		if (STUDENT[i][5] == 'I') {
 			inc.push("[" + STUDENT[i] + "]");
 			
 		}
