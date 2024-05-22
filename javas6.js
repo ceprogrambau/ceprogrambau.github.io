@@ -324,7 +324,8 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		'COMP565',
 		'COMP567',
 		'COMP568',
-		'INME482'
+		'INME482',
+		'COME221'
 	];
 	//course,prereq
 	let prereq = [
@@ -473,7 +474,6 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		['COMP221', 'COMP225'],
 		['COMP222', 'COMP226'],
 		['COMP324', 'COMP325'],
-		['COME221', 'COME411'],
 		['POWE344', 'COME411'],
 		['POWE210', 'POWE212'],
 		['BMGT002', 'MGMT002'],
