@@ -596,7 +596,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			for (j = 0; j < 8; j++) {
 				GE_F[GE_F.length - 1][j] = STUDENT[i][j];
 			}
-		} else if (BASIC.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/")) {
+		} else if (BASIC.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/" || (pass.includes(STUDENT[i][5]) && STUDENT[i][7] == "I") )) {
 			BASIC_C += STUDENT[i][3];
 			BASIC_L.push("[" + STUDENT[i] + "]");
 			BASIC_F.push(['e']);
@@ -609,7 +609,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 				document.getElementById(course).style.visibility = 'visible';
 				document.getElementById("c" + course).checked = true;
 			}
-		} else if (ENG.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/")) {
+		} else if (ENG.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/" || (pass.includes(STUDENT[i][5]) && STUDENT[i][7] == "I") )) {
 			ENG_C += STUDENT[i][3];
 			ENG_L.push("[" + STUDENT[i] + "]");
 			ENG_F.push(['e']);
@@ -625,14 +625,14 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 				document.getElementById(course).style.visibility = 'visible';
 				document.getElementById("c" + course).checked = true;
 			}
-		} else if (OUT.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/")) {
+		} else if (OUT.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/" || (pass.includes(STUDENT[i][5]) && STUDENT[i][7] == "I") )){
 			OUT_C += STUDENT[i][3];
 			OUT_L.push("[" + STUDENT[i] + "]");
 			OUT_F.push(['e']);
 			for (j = 0; j < 8; j++) {
 				OUT_F[OUT_F.length - 1][j] = STUDENT[i][j];
 			}
-		} else if (CORE.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/")) {
+		} else if (CORE.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/" || (pass.includes(STUDENT[i][5]) && STUDENT[i][7] == "I") )){
 			CORE_C += STUDENT[i][3];
 			CORE_L.push("[" + STUDENT[i] + "]");
 			CORE_F.push(['e']);
@@ -640,7 +640,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 				CORE_F[CORE_F.length - 1][j] = STUDENT[i][j];
 			}
 			crl.push(STUDENT[i][1]); //to track  and compare the names only for later check in non taken core courses
-		} else if (TECH.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/")) {
+		} else if (TECH.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/" || (pass.includes(STUDENT[i][5]) && STUDENT[i][7] == "I") )) {
 			TECH_C += STUDENT[i][3];
 			TECH_L.push("[" + STUDENT[i] + "]");
 			TECH_F.push(['e']);
