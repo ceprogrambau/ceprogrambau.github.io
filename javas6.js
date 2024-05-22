@@ -476,7 +476,8 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		['POWE344', 'COME411'],
 		['POWE210', 'POWE212'],
 		['BMGT002', 'MGMT002'],
-		['INME423', 'INME482']
+		['INME423', 'INME482'],
+		['COMP500','CVLE500','CHME500']
 	];
 	
 	let active = [];
