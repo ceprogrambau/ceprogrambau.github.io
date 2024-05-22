@@ -561,7 +561,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		}
 		//check for incomplete
 		if (STUDENT[i][7] == 'I') {
-			inc.push("[" + STUDENT[i] + "]");
+			//inc.push("[" + STUDENT[i] + "]");
 			
 		}
 		//check for duplicates and 
