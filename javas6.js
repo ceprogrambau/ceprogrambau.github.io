@@ -292,6 +292,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		'COMP543L'
 	];
 	let TECH = [
+		'COMP505',	
 		'COMP431',
 		'COMP474',
 		'COMP438',
