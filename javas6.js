@@ -574,13 +574,13 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			if (STUDENT[i][5] == "/")
 				continue
 			
-			if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) >= grade.indexOf(STUDENT[j][5]) || grade.indexOf(STUDENT[i][5]) > 14 ) {
+			if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) > grade.indexOf(STUDENT[j][5]) || grade.indexOf(STUDENT[i][5]) > 14 ) {
 			//if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) > 14 ) {
 				dup.push("[" + STUDENT[i] + "]");
 			}
 		}
 		if (dup.includes("[" + STUDENT[i] + "]") || inc.includes("[" + STUDENT[i] + "]")) {
-			nsum += STUDENT[i][3];
+			//nsum += STUDENT[i][3];
 			continue;
 		}
 		//check for mandatory
