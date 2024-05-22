@@ -577,7 +577,8 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			}
 			if (equal.includes(STUDENT[i][1]))
 			{	
-				equalflag = 1;
+				//equalflag = 1;
+				dup.push("[" + STUDENT[i] + "]");
 				continue;
 			}
 			if (STUDENT[i][5] == "/")
@@ -596,10 +597,10 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			nsum += STUDENT[i][3];
 			continue;
 		}
-		if (equalflag == 1){
-			equalflag = 0;
-			continue;
-		}
+		//if (equalflag == 1){
+		//	equalflag = 0;
+		//	continue;
+		//}
 		//check for mandatory
 		if (mand.includes(course)) {
 			mand_st.push(STUDENT[i][1]);
