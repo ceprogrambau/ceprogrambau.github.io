@@ -245,7 +245,9 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		'PHED003',
 		'HESC001',
 		'MCHE005',
-		'BMKT001'
+		'BMKT001',
+		'CHEM001',
+		'PHTH001'
 	
 		
 	];
@@ -560,6 +562,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		//check for incomplete
 		if (STUDENT[i][7] == 'I') {
 			inc.push("[" + STUDENT[i] + "]");
+			pass.push
 		}
 		//check for duplicates and 
 		if(STUDENT[i][5]=='W')
@@ -586,7 +589,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 		}
 		
 		//check for groups and total
-		if (GE.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/")) {
+		if (GE.includes(course) && (pass.includes(STUDENT[i][5]) || STUDENT[i][5] == "/" || (pass.includes(STUDENT[i][5]) && STUDENT[i][7] == "I") )) {
 			GE_C += STUDENT[i][3];
 			GE_L.push("[" + STUDENT[i] + "]");
 			GE_F.push(['e']);
