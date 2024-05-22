@@ -460,6 +460,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 	let sum = 0;
 	let nsum = 0;
 	let equal =[]
+	equalflag = 0
 	let totalgrad = 150;
 	let crl = [];
 	let dminusflag = 0
@@ -574,7 +575,8 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			if (i == j) {
 				continue;
 			}
-			if (equal.includes("[" + STUDENT[i][1] + "]"))
+			if (equal.includes(STUDENT[i][1])
+				equalflag = 1
 				continue
 			if (STUDENT[i][5] == "/")
 				continue
@@ -585,11 +587,15 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			}
 			if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) == grade.indexOf(STUDENT[j][5])  ) {
 			//if (STUDENT[i][1] == STUDENT[j][1] && grade.indexOf(STUDENT[i][5]) > 14 ) {
-				equal.push("[" + STUDENT[i][1] + "]");
+				equal.push(STUDENT[i][1]);
 			}
 		}
 		if (dup.includes("[" + STUDENT[i] + "]") || inc.includes("[" + STUDENT[i] + "]")) {
 			nsum += STUDENT[i][3];
+			continue;
+		}
+		if (equalflag == 1){
+			equalflag = 0;
 			continue;
 		}
 		//check for mandatory
