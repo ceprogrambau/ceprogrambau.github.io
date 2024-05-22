@@ -582,7 +582,7 @@ function ProcessExcel(data,nmid,dvENG2,ifile) {
 			}
 		}
 		if (dup.includes("[" + STUDENT[i] + "]") || inc.includes("[" + STUDENT[i] + "]")) {
-			//nsum += STUDENT[i][3];
+			nsum += STUDENT[i][3];
 			continue;
 		}
 		//check for mandatory
